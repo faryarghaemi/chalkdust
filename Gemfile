@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.2.0'
 
 # Standard Rails gems
 gem 'rails', '4.2.0'
@@ -12,7 +12,7 @@ gem 'jbuilder', '2.2.11'
 gem 'bcrypt', '3.1.10'
 
 # Necessary for Windows OS (won't install on *nix systems)
-gem 'tzinfo-data', platforms: [:mingw, :mswin]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin]
 
 # Kaminari: https://github.com/amatsuda/kaminari
 gem 'kaminari', '0.16.3'
