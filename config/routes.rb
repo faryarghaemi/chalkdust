@@ -7,7 +7,12 @@ Chalkdust::Application.routes.draw do
   get "posts/:id", to: "pages#show_post", as: "post"
   devise_for :users
 
-  
+  resources :courses do 
+    resources :registrations
+    resources :ratings
+  end
+
+  resources :tags
 
   namespace :admin do
     root "base#index"

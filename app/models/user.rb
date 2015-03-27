@@ -29,12 +29,15 @@
 class User < ActiveRecord::Base
   
 # Relations
+has_many :courses
 has_many :posts
+has_many :ratings, through: :courses
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :confirmable
+
   
   # Pagination
   paginates_per 100
