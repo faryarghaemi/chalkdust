@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141010133702) do
+ActiveRecord::Schema.define(version: 20150327040503) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "user_id"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string   "course_cost"
+    t.datetime "weekdays"
+    t.string   "skill_level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "courses_tags", id: false, force: :cascade do |t|
+    t.string   "course_id"
+    t.string   "tag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
@@ -42,6 +64,27 @@ ActiveRecord::Schema.define(version: 20141010133702) do
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
+  create_table "ratings", force: :cascade do |t|
+    t.string   "course_id"
+    t.string   "user_id"
+    t.string   "stars"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "registrations", force: :cascade do |t|
+    t.string   "user_id"
+    t.string   "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
@@ -61,6 +104,9 @@ ActiveRecord::Schema.define(version: 20141010133702) do
     t.string   "unconfirmed_email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "image"
+    t.text     "linkedin_id"
+    t.boolean  "is_instructor",          default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
