@@ -10,6 +10,8 @@ Chalkdust::Application.routes.draw do
   
   devise_for :users
 
+  get '/currentuser' => 'courses#currentuser'
+
   resources :courses do 
     resources :registrations
     resources :ratings

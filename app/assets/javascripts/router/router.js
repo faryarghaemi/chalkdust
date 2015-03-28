@@ -5,13 +5,13 @@ app.Router = Backbone.Router.extend({
   routes: {
   '': 'coursesView', 
   'courses': 'coursesView', 
-  'create-course': 'newCourse'
+  'create-course': 'newCourse', 
+  'courses/:id': 'viewCourse'
   }, 
   
   coursesView: function () {
     $('#landing-main').show();
     $('#landing-main').empty();
-    console.log('coursesView');
     // var coursesView = new app.CoursesView();
     // coursesView.render(); 
 
@@ -28,10 +28,39 @@ app.Router = Backbone.Router.extend({
   newCourse: function () {
     $('#landing-main').show();
     $('#landing-main').empty();
-    console.log('newCourse'); 
 
     var newCourseView = new app.NewCourseView();
     newCourseView.render(); 
 
+  }, 
+
+  viewCourse: function (id) {
+    app.courses.fetch().done(function () {
+      var course = app.courses.get(id);
+      var courseView = new app.CourseView({model: course});
+      courseView.render(course);
+
+    }); 
+
+ 
+
   }
 }); 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,8 @@
 var app = app || {}; 
 
 app.courses = new app.Courses();
+app.users = new app.Users();
+// app.currentUser = new app.CurrentUser();
 
 
   $(document).ready(function() {
@@ -11,7 +13,11 @@ app.courses = new app.Courses();
   _.templateSettings = {
     interpolate: /\{\{(.+?)\}\}/g
   };
-    app.router = new app.Router();
+
+  // app.users.fetch();
+  // app.currentUser.fetch();
+  
+  app.router = new app.Router();
     Backbone.history.start(); 
     
   });

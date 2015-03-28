@@ -1,9 +1,16 @@
 class CoursesController < ApplicationController
 
+  def currentuser
+    @user = User.find(current_user.id)
+    respond_to do |format|
+      format.json { render json: @user }
+    end
+  end
+
   def index
     @courses = Course.all
     respond_to do |format|
-      format.json {render :json => @courses}
+      format.json {render :json => @courses }
     end
   end
 
@@ -40,6 +47,6 @@ class CoursesController < ApplicationController
 
   private 
     def course_params 
-      params.require(:course).permit(:name, :description, :start_date, :end_date, :start_time, :end_time, :course_cost, :weekdays, :skill_level)
+      params.require(:course).permit(:name, :description, :start_date, :end_date, :start_time, :end_time, :course_cost, :weekdays, :skill_level, :user_id)
     end 
 end
