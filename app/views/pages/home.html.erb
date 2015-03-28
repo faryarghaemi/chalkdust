@@ -1,2 +1,91 @@
 <% title("Home Page") %>
 <h1><i class="fa fa-home"></i> Home Page <small>views/pages/home.html.erb</small></h1>
+
+<div id="landing-container">
+<div id="landing-main"></div>
+</div>
+
+<script id="newCourseView-template" type="text/x-template">
+  <h2>Create Course</h2>
+  <form> 
+    <div>
+      <label for="name">Name</label><br> 
+      <input id="name" placeholder="Name"></label> 
+    </div>
+    <div>
+      <label for="description">Description</label><br> 
+      <input id="description" placeholder="description"></label> 
+    </div>
+    <div>
+      <label for="start_date">start_date</label><br> 
+      <input id="start_date" placeholder="start_date" type="date"></label> 
+    </div>
+    <div>
+      <label for="end_date">end_date</label><br> 
+      <input id="end_date" placeholder="end_date" type="date"></label> 
+    </div>
+    <div>
+      <label for="start_time">start_time</label><br> 
+      <input id="start_time" placeholder="start_time" type="time"></label> 
+    </div>
+    <div>
+      <label for="end_time">end_time</label><br> 
+      <input id="end_time" placeholder="end_time" type="time"></label>
+    </div>
+    <div>
+      <label for="course_cost">course_cost</label><br> 
+      <input id="course_cost" placeholder="course_cost"></label>
+    </div>
+    <div>
+      <label for="weekdays">weekdays</label><br> 
+      <input id="weekdays" placeholder="weekdays"></label>
+    </div>
+    <div>
+      <label for="skill_level">skill_level</label><br> 
+      <input id="skill_level" placeholder="skill_level"></label>
+    </div><br>
+      <button id="create-Course" class="btn btn-success">Create Course</button>
+      <button id="clear-Course" class="btn btn-success">Clear</button> 
+ 
+  </form> 
+  <div id="show-Course"></div> 
+</script>
+
+
+<script id="coursesView-template" type="text/x-underscore-template">
+  <div class="single-course">
+    <h1><a id="{{id}}" data-course-id = {{ id }}>{{name}}</a></h1>
+    <p>{{moment( start_date ).format( 'MMMM D, YYYY' )}}</p>
+    <p>{{description}}</p> 
+    <p>{{moment( start_time ).format( 'h:mm a' )}} - {{moment( end_time ).format( 'h:mm a' )}}</p>
+    <p>{{course_cost}}</p>
+    <p>{{skill_level}}</p>
+  </div>
+</script>
+
+<!--     <p>{{moment( weekdays ).format( 'dddd' )}}</p>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -15,4 +15,9 @@
 //= require turbolinks
 //= require bootstrap 
 //= require analytics
-//= require common
+//= require underscore
+//= require backbone
+//= require moment
+//= require models/course
+//= require_tree .
+
