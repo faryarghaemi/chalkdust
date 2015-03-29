@@ -1,5 +1,7 @@
 var app = app || {};
 
+
+
 app.NewCourseView = Backbone.View.extend({
     el: '#landing-main',
     events: {
@@ -9,6 +11,7 @@ app.NewCourseView = Backbone.View.extend({
     },
 
     render: function() {
+
         var newCourseViewHTML = $('#newCourseView-template').html();
 
         this.$el.html(newCourseViewHTML);
@@ -33,8 +36,9 @@ app.NewCourseView = Backbone.View.extend({
             var weekdays = $('#weekdays').val();
             var skillLevel = $('#skill_level').val();
             var userID = app.currentUser.responseJSON.id;
-            console.log(userID); 
-
+            var userInfo = app.users.get(userID); 
+            var userInstructor = userInfo.attributes.is_instructor; 
+            console.log('instructor', userInstructor); 
 
 
             var course = new app.Course({
@@ -50,11 +54,22 @@ app.NewCourseView = Backbone.View.extend({
                 user_id: userID
             });
 
+           if (userID && userInstructor) {
             course.save();
             app.courses.add(course);
             app.router.navigate('courses', true);
 
-        });
+           } else { 
+                var instructorFalseHTML = $('#instructor-false-template').html();
+                $('#landing-main').html(instructorFalseHTML);
+           }
+       
+
+        }).fail(function () {
+            var instructorFalseHTML = $('#instructor-false-template').html();
+            $('#landing-main').html(instructorFalseHTML);
+
+        }); 
 
 
 

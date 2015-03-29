@@ -7,7 +7,8 @@ app.Router = Backbone.Router.extend({
   'courses': 'coursesView', 
   'create-course': 'newCourse', 
   'courses/:id': 'viewCourse', 
-  'courses/:course_id/registrations/:id': 'viewRegistration'
+  'courses/:course_id/registrations/:id': 'viewRegistration', 
+  'allusers/:id': 'viewUser'
   }, 
   
   coursesView: function () {
@@ -40,6 +41,17 @@ app.Router = Backbone.Router.extend({
       courseView.render(course);
 
     }); 
+  },
+
+  viewUser: function (id) {
+    app.users.fetch().done(function () {
+      var user = app.users.get(id); 
+      var userView = new app.UserView({model: user}); 
+      userView.render(user);
+
+
+    }); 
+
   }, 
 
   viewRegistration: function (courseID, registration_id) {
