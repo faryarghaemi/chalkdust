@@ -54,6 +54,7 @@ gem 'pg'
 
 # Devise: https://github.com/plataformatec/devise
 gem 'devise', '3.4.1'
+gem 'omniauth-linkedin-oauth2'
 
 # Redcarpet: https://github.com/vmg/redcarpet
 gem 'redcarpet', '3.2.2'
