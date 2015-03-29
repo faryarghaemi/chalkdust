@@ -4,13 +4,18 @@ app.NewCourseView = Backbone.View.extend({
     el: '#landing-main',
     events: {
         'click #create-Course': 'createNewCourse',
-        'click #clear-Course': 'clearCourse'
+        'click #clear-Course': 'clearCourse', 
+        'click #create-search': 'createSearch'
     },
 
     render: function() {
         var newCourseViewHTML = $('#newCourseView-template').html();
 
         this.$el.html(newCourseViewHTML);
+
+        // var newSearchViewHTML = $('#newSearchView-template').html();
+
+        // this.$el.html(newSearchViewHTML);
     },
 
     createNewCourse: function(event) {
@@ -60,5 +65,12 @@ app.NewCourseView = Backbone.View.extend({
         event.preventDefault();
         $('#newCourseView-template').empty();
 
+    }, 
+
+    createSearch: function (event) {
+        event.preventDefault(); 
+        console.log('searching'); 
+
     }
+
 });

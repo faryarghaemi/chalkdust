@@ -22,4 +22,9 @@ class Course < ActiveRecord::Base
   has_many :registrations
   has_and_belongs_to_many :tags
   has_many :ratings
+
+
+  def self.search(query)
+    where("name ilike ? OR description ilike ?", "%#{query}%", "%#{query}%")
+  end
 end

@@ -42,6 +42,17 @@ has_many :ratings, through: :courses
   # Pagination
   paginates_per 100
 
+  # def currentuser
+  #   @current_user = User.find(current_user.id)
+  #   respond_to do |format|
+  #     format.json { render json: @current_user }
+  #   end
+  # end
+
+  def current_user
+    @current_user ||= User.find_by(id: session[:user])
+  end
+
   # Validations
   # :email
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i

@@ -7,25 +7,43 @@ app.CourseView = Backbone.View.extend({
   }, 
 
   render: function (result) {
+    app.courseInfo = result; 
     this.$el.empty(); 
-    console.log(result); 
     var courseViewTemplate = $('#courseView-template').html();
     var courseViewHTML = _.template(courseViewTemplate);
 
-    var course = result.attributes
+    var course = app.courseInfo.attributes
     var compiledHTML = courseViewHTML(course); 
     $('#landing-main').append(compiledHTML); 
 
   }, 
 
   registerCourse: function (event) {
-    event.preventDefault(); 
-    
+    event.preventDefault();
+
+    app.currentUser = $.getJSON('/currentuser').done(function() {
+
+      app.courseID = app.courseInfo.get('id'); 
+      var userID = app.currentUser.responseJSON.id;  
+
+      var registration = new app.Registration({
+        course_id: app.courseID,
+        user_id: userID
+
+      });
+
+
+      registration.save().done(function () {
+        app.registrations.add(registration); 
+          app.registration_id = registration.attributes.id;
+          app.router.navigate('courses/' + app.courseID + '/registrations/' + app.registration_id, true);
+
+      });
+
+
+   }); 
 
   }
-
-
-
 
 
 }); 

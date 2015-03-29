@@ -19,5 +19,6 @@
 //= require backbone
 //= require moment
 //= require models/course
+//= require models/registration
 //= require_tree .
 

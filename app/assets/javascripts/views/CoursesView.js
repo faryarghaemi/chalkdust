@@ -2,7 +2,8 @@ var app = app || {};
 app.CoursesView = Backbone.View.extend({
   el: '#landing-main',
   events: {
-    'click a': 'showCourse'
+    'click a': 'showCourse', 
+    'click #create-search': 'createSearch'
   }, 
 
   render: function () {
@@ -24,6 +25,12 @@ app.CoursesView = Backbone.View.extend({
   showCourse: function (result) {
     var id = result.currentTarget.id;
     app.router.navigate('courses/' + id, true);   
+  }, 
+
+  createSearch: function (event) {
+    event.preventDefault(); 
+    console.log('searching'); 
+
   }
 
 

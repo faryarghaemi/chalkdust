@@ -1,16 +1,25 @@
 class CoursesController < ApplicationController
 
   def currentuser
-    @user = User.find(current_user.id)
+    @current_user = User.find(current_user.id)
     respond_to do |format|
-      format.json { render json: @user }
+      format.json { render json: @current_user }
     end
   end
 
   def index
-    @courses = Course.all
-    respond_to do |format|
-      format.json {render :json => @courses }
+    if params[:search]
+      @courses = Course.search(params[:search])
+      respond_to do |format|
+        format.json {render :json => @courses }
+      # render :json => @courses
+      end 
+    else
+      @courses = Course.all
+      respond_to do |format|
+        format.json {render :json => @courses }
+      # render :json => @courses
+      end
     end
   end
 

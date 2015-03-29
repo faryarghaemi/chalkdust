@@ -1,7 +1,8 @@
 var app = app || {}; 
 
 app.courses = new app.Courses();
-app.users = new app.Users();
+app.registrations = new app.Registrations(); 
+// app.users = new app.Users();
 // app.currentUser = new app.CurrentUser();
 
 

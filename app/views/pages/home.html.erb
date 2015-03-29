@@ -78,6 +78,19 @@
   </div>
 </script>
 
+<script id="registrationView-template" type="text/x-underscore-template">
+  <div class="single-course">
+    <h2>Registration Confirmation</h2><p>Confirmation #{{registerID}}</p>
+    <h3>{{course.name}}</h3>
+    <p>Instructor: {{course.user_id}}</p>
+    <p>{{moment( course.start_date ).format( 'MMMM D, YYYY' )}}</p>
+    <p>{{course.description}}</p> 
+    <p>{{moment( course.start_time ).format( 'h:mm a' )}} - {{moment( course.end_time ).format( 'h:mm a' )}}</p>
+    <p>{{course.course_cost}}</p>
+    <p>{{course.skill_level}}</p>
+  </div>
+</script>
+
 <!--     <p>{{moment( weekdays ).format( 'dddd' )}}</p>
  -->
 

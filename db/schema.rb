@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328124505) do
+ActiveRecord::Schema.define(version: 20150329061014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,8 +73,8 @@ ActiveRecord::Schema.define(version: 20150328124505) do
   end
 
   create_table "registrations", force: :cascade do |t|
-    t.string   "user_id"
-    t.string   "course_id"
+    t.integer  "user_id"
+    t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -107,6 +107,8 @@ ActiveRecord::Schema.define(version: 20150328124505) do
     t.text     "image"
     t.text     "linkedin_id"
     t.boolean  "is_instructor",          default: false
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
