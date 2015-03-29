@@ -27,6 +27,7 @@ app.CoursesView = Backbone.View.extend({
         var coursesViewHTML = _.template(coursesViewTemplate);
 
         var compiledHTML = coursesViewHTML(options); 
+        
         $('#landing-main').append(compiledHTML); 
 
       }); 

@@ -57,19 +57,14 @@ app.Router = Backbone.Router.extend({
   viewRegistration: function (courseID, registration_id) {
     $('#landing-main').empty();
 
-
-
     app.courses.fetch().done(function () {
-
 
       app.registrations.fetch().done(function () {
 
 
         var options = {
           registrationID: registration_id, 
-          registration: app.registrations.get(registration_id), 
           courseID: courseID
-
         } 
 
         var registrationView = new app.RegistrationView({model: options});
