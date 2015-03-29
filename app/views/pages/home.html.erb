@@ -55,6 +55,7 @@
 <script id="coursesView-template" type="text/x-underscore-template">
   <div class="single-course">
     <h1><a id="{{id}}" data-course-id = {{ id }}>{{name}}</a></h1>
+    <p>with {{}} </p>
     <p>{{moment( start_date ).format( 'MMMM D, YYYY' )}}</p>
     <p>{{description}}</p> 
     <p>{{moment( start_time ).format( 'h:mm a' )}} - {{moment( end_time ).format( 'h:mm a' )}}</p>

@@ -9,17 +9,21 @@ app.CoursesView = Backbone.View.extend({
   render: function () {
     this.$el.empty(); 
 
-    app.courses.each(function (course) {
-      var coursesViewTemplate = $('#coursesView-template').html();
-      var coursesViewHTML = _.template(coursesViewTemplate);
+    app.users.fetch().done(function () {
+      app.courses.each(function (course) {
 
-      // var name = course.attributes.name; 
-      // view.$el.prepend(name); 
+        var userID = course.attributes.user_id;         
+        var coursesViewTemplate = $('#coursesView-template').html();
+        var coursesViewHTML = _.template(coursesViewTemplate);
 
-      var course = course.attributes
-      var compiledHTML = coursesViewHTML(course); 
-      $('#landing-main').append(compiledHTML); 
+        var course = course.attributes
+        var compiledHTML = coursesViewHTML(course); 
+        $('#landing-main').append(compiledHTML); 
+
+      }); 
+
     }); 
+
   }, 
 
   showCourse: function (result) {

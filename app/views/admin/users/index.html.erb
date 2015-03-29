@@ -19,6 +19,10 @@
   <tr>
     <th>User ID</th>
     <th>Admin</th>
+    <th>First</th>
+    <th>Last</th>
+    <th>LinkedIn</th>
+    <th>Instructor</th>
     <th>Locked</th>
     <th>Email</th>
     <th>Sign In Count</th>
@@ -32,6 +36,10 @@
   <tr>
     <td><%= user.id %></td>
     <td><%= link_to user.email, admin_user_path(user) %></td>
+    <td><%= user.first_name %></td>
+    <td><%= user.last_name %></td>
+    <td><%= user.linkedin_id %></td>
+    <td><%= user.is_instructor %></td>
     <td><%= user.admin? ? "<b>yes</b>".html_safe : "no" %></td>
     <td><%= user.locked? ? "<b>yes</b>".html_safe : "no" %></td>
     <td><%= user.sign_in_count %></td>

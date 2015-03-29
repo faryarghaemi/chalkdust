@@ -6,11 +6,11 @@ Chalkdust::Application.routes.draw do
   get "posts", to: "pages#posts", as: "posts"
   get "posts/:id", to: "pages#show_post", as: "post"
 
-  # post "/" => "courses#create"
+
   
   devise_for :users
-
   get '/currentuser' => 'courses#currentuser'
+  get '/allusers' => 'courses#allusers'
 
   resources :courses do 
     resources :registrations

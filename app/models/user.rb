@@ -24,6 +24,8 @@
 #  image                  :text
 #  linkedin_id            :text
 #  is_instructor          :boolean          default("false")
+#  first_name             :string
+#  last_name              :string
 #
 
 class User < ActiveRecord::Base

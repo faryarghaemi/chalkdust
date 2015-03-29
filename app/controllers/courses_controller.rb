@@ -7,6 +7,11 @@ class CoursesController < ApplicationController
     end
   end
 
+  def allusers
+    @users = User.all 
+    render :json => @users
+  end 
+
   def index
     if params[:search]
       @courses = Course.search(params[:search])

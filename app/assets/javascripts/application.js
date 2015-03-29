@@ -20,5 +20,6 @@
 //= require moment
 //= require models/course
 //= require models/registration
+//= require models/user
 //= require_tree .
 
