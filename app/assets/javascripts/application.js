@@ -19,7 +19,9 @@
 //= require backbone
 //= require moment
 //= require jquery.slick
+//= require modernizr 
 //= require lib/slick
+//= require lib/interactive-svg
 //= require models/course
 //= require models/registration
 //= require models/user

@@ -61,6 +61,8 @@ gem 'cloudinary'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'jquery-slick-rails', '~> 1.5.0.1'
+gem 'modernizr-rails'
+gem 'inline_svg'
 
 # Redcarpet: https://github.com/vmg/redcarpet
 gem 'redcarpet', '3.2.2'

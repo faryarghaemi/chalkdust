@@ -7,7 +7,9 @@
   <%= favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag :modernizr %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
   <div id="wrap">
@@ -146,15 +148,14 @@
 
 <script id="myCourseViewInstructStudents-template" type="text/x-underscore-template">
   <div class="left">
-  <h2>Instructing</h2> 
-  <h3>{{name}}</h3>
+  <h3>{{student_name}}</h3>
   </div>
-  <div id="instruct"></div>
 </script>
 
 <script id="myCourseViewLearn-template" type="text/x-underscore-template">
   <div class="right">
-  <h4>{{user_id}}</h4>
+  <h2>Learning</h2> 
+  <h3>{{name}}</h3>
   </div>
 </script>
 
@@ -183,6 +184,21 @@
   </div>
 </script>
 
+<script id="userViewTry2-template" type="text/x-underscore-template">
+  <div class="center">
+<div id="stage">$(function(){
+
+  $("#stage").load('interactive.svg',function(response){
+
+    $(this).addClass("svgLoaded");
+    
+    if(!response){
+      console.log('error'); 
+    }
+
+  });
+});</div>
+</script>
 
 
 
