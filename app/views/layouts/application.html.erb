@@ -136,18 +136,54 @@
   </div>
 </script>
 
+<script id="myCourseViewInstruct-template" type="text/x-underscore-template">
+  <div class="left">
+  <h2>Instructing</h2> 
+  <h3>{{name}}</h3>
+  </div>
+  <div id="instruct"></div>
+</script>
+
+<script id="myCourseViewInstructStudents-template" type="text/x-underscore-template">
+  <div class="left">
+  <h2>Instructing</h2> 
+  <h3>{{name}}</h3>
+  </div>
+  <div id="instruct"></div>
+</script>
+
+<script id="myCourseViewLearn-template" type="text/x-underscore-template">
+  <div class="right">
+  <h4>{{user_id}}</h4>
+  </div>
+</script>
+
+
+
 <script id="userView-template" type="text/x-underscore-template">
   <div class="single-course">
+
     <div class="left">
+
     <h1>{{first_name}} {{last_name}}</h1>
     <p>Email: {{email}}</p>
     <p><a href="{{linkedin_id}}" target="_blank">LinkedIn</a></p>
   </div> 
+
   <div class="right" id="user-right">
   </div> 
+  </div> 
+</script>
 
+<script id="userViewTry-template" type="text/x-underscore-template">
+  <div class="center">
+    <div><%= image_tag('1.png') %></div>
+    <div><%= image_tag('2.png') %></div>
+    <div><%= image_tag('3.png') %></div>
   </div>
 </script>
+
+
 
 
 

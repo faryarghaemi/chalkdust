@@ -4,7 +4,7 @@ app = app || {};
 app.Router = Backbone.Router.extend({
   routes: {
   '': 'coursesView', 
-  'courses': 'myCourses', 
+  'mycourses': 'myCourses', 
   'create-course': 'newCourse', 
   'courses/:id': 'viewCourse', 
   'courses/:course_id/registrations/:id': 'viewRegistration', 
@@ -101,9 +101,11 @@ app.Router = Backbone.Router.extend({
   myCourses: function () {
     $('#landing-main').empty();
 
+
     var users = app.users.fetch(); 
     var courses = app.courses.fetch();
     var registrations = app.registrations.fetch();
+
 
     $.when(users, courses, registrations).then(function () {
 

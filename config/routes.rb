@@ -11,6 +11,7 @@ Chalkdust::Application.routes.draw do
   # mine
   get '/currentuser' => 'courses#currentuser'
   get '/allusers' => 'courses#allusers'
+  # get '/mycourses' => 'courses#mycourses'
   resources :charges
 
 

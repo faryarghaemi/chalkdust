@@ -7,6 +7,13 @@ class CoursesController < ApplicationController
     end
   end
 
+ #  def mycourses
+ #   @current_user = User.find_by :id => session[:user_id]
+ #   @mycourses = @current_user.courses
+ #   render :json => @mycourses
+ #   binding.pry
+ # end
+
   def allusers
     @users = User.all 
     render :json => @users

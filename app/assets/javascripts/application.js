@@ -18,6 +18,8 @@
 //= require underscore
 //= require backbone
 //= require moment
+//= require jquery.slick
+//= require lib/slick
 //= require models/course
 //= require models/registration
 //= require models/user

@@ -26,6 +26,9 @@
 #  is_instructor          :boolean          default("false")
 #  first_name             :string
 #  last_name              :string
+#  project_one            :text
+#  project_two            :text
+#  project_three          :text
 #
 
 class User < ActiveRecord::Base
