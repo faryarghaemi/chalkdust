@@ -3,17 +3,16 @@ var app = app || {};
 app.RegistrationView = Backbone.View.extend({
   el: '#landing-main',
   render: function (options) {
-    // console.log('registrationview registerID', app.registration_id);
-    console.log('options', options); 
     var registration = this.model; 
     var view = this; 
 
-    console.log('this.model', this.model); 
 
     var registrationID = this.model.registrationID; 
     var courseID = this.model.courseID;
-    var user = app.users.get(registrationID); 
-    console.log('user', user); 
+    var userID = this.model.userID;
+    var userInfo = app.users.get(userID); 
+    var user = userInfo.attributes; 
+    
 
 
     app.courses.fetch().done(function (courses) {
@@ -24,7 +23,8 @@ app.RegistrationView = Backbone.View.extend({
     var optionsModel = {
 
       course: courseInfo.attributes, 
-      registerID: registrationID
+      registerID: registrationID, 
+      user: user
 
       } 
 

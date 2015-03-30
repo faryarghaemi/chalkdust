@@ -44,6 +44,19 @@
       </div>
     </div>
 
+    <div class="form-group">
+      <%= f.label :image %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.file_field :image %>
+          <%= f.text_field :remote_image_url, :placeholder => 'or image url' %>
+        </div>
+      </div>
+    </div>
+
+
+
+
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div class="row">
       <div class="col-sm-6">

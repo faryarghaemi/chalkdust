@@ -6,11 +6,13 @@ Chalkdust::Application.routes.draw do
   get "posts", to: "pages#posts", as: "posts"
   get "posts/:id", to: "pages#show_post", as: "post"
 
-
   
   devise_for :users
+  # mine
   get '/currentuser' => 'courses#currentuser'
   get '/allusers' => 'courses#allusers'
+  resources :charges
+
 
   resources :courses do 
     resources :registrations
@@ -18,6 +20,8 @@ Chalkdust::Application.routes.draw do
   end
 
   resources :tags
+
+  # bricks
 
   namespace :admin do
     root "base#index"

@@ -28,11 +28,148 @@
           <%= yield %>
         </div>
       </div>
+  <div id="landing-container">
+    <div id="landing-main"></div>
+  </div>
 
     </div>
   </div>
+  
 
   <%= render 'layouts/footer' %>
+  <script>
+  $(document).ready(function () {
+    $("a.backbone").on("click", function () {
+      event.preventDefault();
+      window.location = $(this).attr("href");
+    })
+  });
+  </script>
 
+<script id="newCourseView-template" type="text/x-template">
+  <h2>Create Course</h2>
+  <form> 
+    <div>
+      <label for="name">Name</label><br> 
+      <input id="name" placeholder="name"></input> 
+    </div>
+    <div>
+      <label for="description">Description</label><br> 
+      <input id="description" placeholder="description"></input> 
+    </div>
+    <div>
+      <label for="start_date">Start Date</label><br> 
+      <input id="start_date" placeholder="start date" type="date"></input> 
+    </div>
+    <div>
+      <label for="end_date">End Date</label><br> 
+      <input id="end_date" placeholder="end date" type="date"></input> 
+    </div>
+    <div>
+      <label for="start_time">Start Time</label><br> 
+      <input id="start_time" placeholder="start time" type="time"></input> 
+    </div>
+    <div>
+      <label for="end_time">End Time</label><br> 
+      <input id="end_time" placeholder="end time" type="time"></input>
+    </div>
+    <div>
+      <label for="course_cost">Course Cost</label><br> 
+      <input id="course_cost" placeholder="$200"></input>
+    </div>
+    <div>
+      <label for="weekdays">Weekdays</label><br> 
+      <input id="weekdays" placeholder="monday"></input>
+    </div>
+    <div>
+      <label for="skill_level">Skill Level</label><br> 
+        <select id="skill_level">
+          <option value="beginner">beginner</option>
+          <option value="intermediate">intermediate</option>
+          <option value="advanced">advanced</option>
+        </select>
+    </div><br>
+
+      <button id="create-Course" class="btn btn-success">Create Course</button>
+      <button id="clear-Course" class="btn btn-success">Clear</button> 
+ 
+  </form> 
+  <div id="show-Course"></div> 
+</script>
+
+<script id="instructor-false-template" type="text/x-template">
+  <h2>You must sign up as an instructor to create a course.</h2>
+</script>
+
+<script id="course-false-template" type="text/x-template">
+  <h2>You have already signed up for this course.</h2>
+</script>
+
+
+<script id="coursesView-template" type="text/x-underscore-template">
+  <div class="single-course relative col-lg-6 col-md-6">
+    <%= image_tag('chalkboardnew.png') %>
+    <div class="details absolute">
+      <h1><a id="{{course.id}}" class="course" data-course-id = {{ course.id }}>{{course.name}}</a></h1>
+      <p>with <a id="{{user.id}}" class="user" data-course-id = {{ user.id }}>{{user.first_name}} {{user.last_name}}</a></p>
+      <p>{{moment( course.start_date ).format( 'MMMM D, YYYY' )}}</p>
+      <p>{{course.description}}</p> 
+      <p>{{moment( course.start_time ).format( 'h:mm a' )}} - {{moment( course.end_time ).format( 'h:mm a' )}}</p>
+      <p>{{course.course_cost}}</p>
+      <p>{{course.skill_level}}</p>
+    </div>
+  </div>
+</script>
+
+
+
+<script id="registrationView-template" type="text/x-underscore-template">
+  <div class="single-course">
+    <h2>Registration Confirmation</h2><p>Confirmation #{{registerID}}</p>
+    <h3>{{course.name}}</h3>
+    <p>Instructor: {{user.first_name}} {{user.last_name}}</p>
+    <p>{{moment( course.start_date ).format( 'MMMM D, YYYY' )}}</p>
+    <p>{{course.description}}</p> 
+    <p>{{moment( course.start_time ).format( 'h:mm a' )}} - {{moment( course.end_time ).format( 'h:mm a' )}}</p>
+    <p>{{course.course_cost}}</p>
+    <p>{{course.skill_level}}</p>
+  </div>
+</script>
+
+<script id="userView-template" type="text/x-underscore-template">
+  <div class="single-course">
+    <div class="left">
+    <h1>{{first_name}} {{last_name}}</h1>
+    <p>Email: {{email}}</p>
+    <p><a href="{{linkedin_id}}" target="_blank">LinkedIn</a></p>
+  </div> 
+  <div class="right" id="user-right">
+  </div> 
+
+  </div>
+</script>
+
+
+
+  <script id="courseView-template" type="text/x-underscore-template">
+  <div class="single-course">
+    <h1><a id="{{course.id}}" data-course-id = {{ course.id }}>{{course.name}}</a></h1>
+    <p>with <a id="{{user.id}}" data-course-id = {{ user.id }}>{{user.first_name}} {{user.last_name}}</a></p>
+    <p>{{moment( course.start_date ).format( 'MMMM D, YYYY' )}}</p>
+    <p>{{course.description}}</p> 
+    <p>{{moment( course.start_time ).format( 'h:mm a' )}} - {{moment( course.end_time ).format( 'h:mm a' )}}</p>
+    <p>{{course.course_cost}}</p>
+    <p>{{course.skill_level}}</p>
+    <form>
+    <button id="register" class="btn btn-success">Register</button>
+    </form>
+
+  </div>
+</script>
+
+
+
+<!--     <p>{{moment( weekdays ).format( 'dddd' )}}</p>
+ -->
 </body>
 </html>

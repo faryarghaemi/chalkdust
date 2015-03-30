@@ -55,6 +55,9 @@ has_many :ratings, through: :courses
     @current_user ||= User.find_by(id: session[:user])
   end
 
+  mount_uploader :image, ImageUploader 
+
+
   # Validations
   # :email
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i

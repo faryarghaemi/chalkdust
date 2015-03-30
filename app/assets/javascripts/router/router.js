@@ -4,20 +4,27 @@ app = app || {};
 app.Router = Backbone.Router.extend({
   routes: {
   '': 'coursesView', 
-  'courses': 'coursesView', 
+  'courses': 'myCourses', 
   'create-course': 'newCourse', 
   'courses/:id': 'viewCourse', 
   'courses/:course_id/registrations/:id': 'viewRegistration', 
   'allusers/:id': 'viewUser'
   }, 
+
+  initialize: function () {
+    app.courses = new app.Courses();
+    app.registrations = new app.Registrations(); 
+    app.users = new app.Users();
+  },
   
   coursesView: function () {
     $('#landing-main').empty();
-    // var coursesView = new app.CoursesView();
-    // coursesView.render(); 
+    var courses = app.courses.fetch();
+    var registrations = app.registrations.fetch();
 
 
-    app.courses.fetch().done(function (id){
+    $.when(courses, registrations).then(function (id){
+
       var course = app.courses.get(id); 
       var coursesView = new app.CoursesView({model: course});
       coursesView.render();
@@ -35,7 +42,11 @@ app.Router = Backbone.Router.extend({
   }, 
 
   viewCourse: function (id) {
-    app.courses.fetch().done(function () {
+    var users = app.users.fetch(); 
+    var courses = app.courses.fetch();
+    var registrations = app.registrations.fetch();
+
+    $.when(users, courses, registrations).then(function () {
       var course = app.courses.get(id);
       var courseView = new app.CourseView({model: course});
       courseView.render(course);
@@ -44,6 +55,7 @@ app.Router = Backbone.Router.extend({
   },
 
   viewUser: function (id) {
+    $('#landing-main').empty();
     app.users.fetch().done(function () {
       var user = app.users.get(id); 
       var userView = new app.UserView({model: user}); 
@@ -54,31 +66,59 @@ app.Router = Backbone.Router.extend({
 
   }, 
 
-  viewRegistration: function (courseID, registration_id) {
+  viewRegistration: function (courseID, registrationID) {
     $('#landing-main').empty();
 
-    app.courses.fetch().done(function () {
+    // console.log('courseID, registrationID', courseID, registrationID); 
 
-      app.registrations.fetch().done(function () {
+    var users = app.users.fetch(); 
+    var courses = app.courses.fetch();
+    var registrations = app.registrations.fetch();
+
+
+      $.when(users, courses, registrations).then(function () {
+
+        var courseInfo = app.courses.get(courseID); 
+        var userID = courseInfo.attributes.user_id; 
+
 
 
         var options = {
-          registrationID: registration_id, 
-          courseID: courseID
+          registrationID: registrationID, 
+          courseID: courseID, 
+          userID: userID
         } 
 
         var registrationView = new app.RegistrationView({model: options});
 
 
-        registrationView.render(options.registration_id); 
+        registrationView.render(options.registrationID); 
 
       });
+
+  }, 
+
+  myCourses: function () {
+    $('#landing-main').empty();
+
+    var users = app.users.fetch(); 
+    var courses = app.courses.fetch();
+    var registrations = app.registrations.fetch();
+
+    $.when(users, courses, registrations).then(function () {
+
+        
+
+        var myCoursesView = new app.MyCoursesView(); 
+        myCoursesView.render(); 
+
 
 
     }); 
 
- 
+
   }
+
 }); 
 
 

@@ -55,6 +55,12 @@ gem 'pg'
 # Devise: https://github.com/plataformatec/devise
 gem 'devise', '3.4.1'
 gem 'omniauth-linkedin-oauth2'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'cloudinary'
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'jquery-slick-rails', '~> 1.5.0.1'
 
 # Redcarpet: https://github.com/vmg/redcarpet
 gem 'redcarpet', '3.2.2'

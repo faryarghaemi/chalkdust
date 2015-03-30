@@ -63,12 +63,14 @@ class Admin::UsersController < Admin::BaseController
     :email, 
     :first_name, 
     :last_name,
-    :linkedin_id, 
+    :linkedin_id,
+    :image, 
     :is_instructor, 
     :password,
     :password_confirmation,
     :admin,
-    :locked
+    :locked, 
+    :remote_image_url
     )
   end
 

@@ -9,7 +9,6 @@ app.CoursesView = Backbone.View.extend({
 
   render: function () {
     this.$el.empty(); 
-
     app.users.fetch().done(function () {
       app.courses.each(function (course) {
 
@@ -27,7 +26,6 @@ app.CoursesView = Backbone.View.extend({
         var coursesViewHTML = _.template(coursesViewTemplate);
 
         var compiledHTML = coursesViewHTML(options); 
-        
         $('#landing-main').append(compiledHTML); 
 
       }); 
@@ -43,14 +41,12 @@ app.CoursesView = Backbone.View.extend({
 
   showUser: function (result) {
     var id = result.currentTarget.id;
-    console.log(id); 
     app.router.navigate('allusers/' + id, true); 
 
   }, 
 
   createSearch: function (event) {
     event.preventDefault(); 
-    console.log('searching'); 
 
   }
 

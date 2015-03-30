@@ -38,7 +38,6 @@ app.NewCourseView = Backbone.View.extend({
             var userID = app.currentUser.responseJSON.id;
             var userInfo = app.users.get(userID); 
             var userInstructor = userInfo.attributes.is_instructor; 
-            console.log('instructor', userInstructor); 
 
 
             var course = new app.Course({
@@ -84,7 +83,6 @@ app.NewCourseView = Backbone.View.extend({
 
     createSearch: function (event) {
         event.preventDefault(); 
-        console.log('searching'); 
 
     }
 

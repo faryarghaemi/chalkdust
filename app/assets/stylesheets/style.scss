@@ -1,0 +1,57 @@
+.relative { 
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.single-course { 
+  margin-bottom: 1em;
+}
+
+.left { 
+  width: 48%; 
+  float: left; 
+
+ }
+
+ .right { 
+  width: 48%; 
+  float: right; 
+    
+ }
+
+.single-course .details {
+    z-index: 200;
+    top: 7%;
+    color: white;
+    left: 10%;
+}
+
+.single-course .details a {
+    color: #E2DD8F;
+}
+
+.chalk_icon { 
+    width: 8%; 
+    display: inline; 
+
+}
+
+/*#image
+{    
+    position:absolute;
+    left:0;
+    top:0;
+}
+#text
+{
+    z-index:100;
+    position:absolute;    
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    left:150px;
+    top:350px;
+}*/

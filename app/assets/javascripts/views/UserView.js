@@ -15,13 +15,22 @@ app.UserView = Backbone.View.extend({
     var compiledHTML = userViewHTML(user); 
     $('#landing-main').append(compiledHTML); 
 
+    // <script id="userViewRight-template">
+    // $('.autoplay').slick({
+    //   slidesToShow: 3,
+    //   slidesToScroll: 1,
+    //   autoplay: true,
+    //   autoplaySpeed: 2000,
+    // });
+    // </script>
+
 
   }, 
 
   linkedIn: function (event) {
     event.preventDefault(); 
 
-    $.getJSON('https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=75b8c68vo1cskn&redirect_uri=http://localhost:3000/&state=9a8b7c6d5e4f3g2h1i&scope=r_basicprofile')
+    
 
   }
 }); 
