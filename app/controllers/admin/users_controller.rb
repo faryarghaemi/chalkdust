@@ -25,7 +25,8 @@ class Admin::UsersController < Admin::BaseController
 
 
   def interactive
-    @current_user
+    @user = @current_user
+    # @user = User.where( :id => params["user_id"])
     respond_to do |format|  
       format.svg  
     end  

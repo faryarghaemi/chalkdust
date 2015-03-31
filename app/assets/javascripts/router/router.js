@@ -70,6 +70,7 @@ app.Router = Backbone.Router.extend({
 
   viewUser: function (id) {
     $('#landing-main').empty();
+
     app.users.fetch().done(function () {
       var user = app.users.get(id); 
       var userView = new app.UserView({model: user}); 

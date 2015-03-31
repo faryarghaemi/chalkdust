@@ -40,8 +40,16 @@ app.CoursesView = Backbone.View.extend({
   },
 
   showUser: function (result) {
-    var id = result.currentTarget.id;
-    app.router.navigate('allusers/' + id, true); 
+    var user_id = result.currentTarget.id;
+    app.router.navigate('allusers/' + user_id, true); 
+
+
+    // $.ajax("/allusers", {
+    //     data: {  
+    //       user_id: user_id
+    //   }
+    // }); 
+
 
   }, 
 

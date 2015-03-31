@@ -3,7 +3,9 @@ var app = app || {};
 app.CourseView = Backbone.View.extend({
   el: '#landing-main',
   events: {
-    'click #register': 'registerCourse'
+    'click #register': 'registerCourse' 
+    // 'click .stripe-button': 'registerCourse', 
+    // 'click .iconTick'
   }, 
 
   render: function (result) {
@@ -44,8 +46,32 @@ app.CourseView = Backbone.View.extend({
 
   registerCourse: function (event) {
     event.preventDefault();
+
+// stripe stuff
+
+//     var newCourseViewHTML = $('#newCourseView-template').html();
+
+//     this.$el.html(newCourseViewHTML);
+
+
+//     <form action="/charge" method="POST">
+//   <script
+//     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+//     data-key="pk_test_gbvyNMHRqJfUgV8tK0bqdngM"
+//     data-image="/img/documentation/checkout/marketplace.png"
+//     data-name="Demo Site"
+//     data-description="2 widgets"
+//     data-currency="aud"
+//     data-amount="2000">
+//   </script>
+// </form>
+
+// stripe stuff
+
     event.stopPropagation();
     event.stopImmediatePropagation();
+
+  
 
     app.registrations.courseID = this.model.get("id"); 
 

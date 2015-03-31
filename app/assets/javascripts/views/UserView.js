@@ -56,7 +56,7 @@ app.UserView = Backbone.View.extend({
 
         }
 
-
+        
 
         // interactive svg
         var userViewTry2HTML = $('#userViewTry2-template').html();

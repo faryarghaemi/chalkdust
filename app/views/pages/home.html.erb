@@ -6,6 +6,17 @@
     <div id="landing-main"></div>
   </div>
 
+<%= form_tag charges_path do %>
+<script
+  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+  data-name="Chalkdust"
+  data-description="Course Cost"
+  data-amount="500"
+  data-email="<%= current_user.email %>">
+</script>
+<% end %>
+
 
 <script id="newCourseView-template" type="text/x-template">
   <h2>Create Course</h2>
@@ -161,7 +172,7 @@
     <p>{{course.course_cost}}</p>
     <p>{{course.skill_level}}</p>
     <form>
-    <button id="register" class="btn btn-success">Register</button>
+    <button id="register " class="btn btn-success">Register</button>
     </form>
 
   </div>

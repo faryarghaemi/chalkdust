@@ -10,6 +10,7 @@ app.MyCoursesView = Backbone.View.extend({
 
 
       var courseIDArray = []; 
+      // courses i am instructing
       for (var i = 0; i < app.courses.length; i++) {
         var onecourse = app.courses.models[i]
         if (onecourse.attributes.user_id === userID ) {
@@ -25,30 +26,30 @@ app.MyCoursesView = Backbone.View.extend({
 
 
 
-      for (var i = 0; i < app.registrations.length; i++) {
+      // for (var i = 0; i < app.registrations.length; i++) {
 
-        var oneregistration = app.registrations.models[i]
+      //   var oneregistration = app.registrations.models[i]
 
-        if ( oneregistration.attributes.course_id ===  courseIDArray[i]) {
+      //   if ( oneregistration.attributes.course_id ===  courseIDArray[i]) {
 
-          console.log(oneregistration.attributes.course_id); 
-        }
-      };
+      //     console.log(oneregistration.attributes.course_id); 
+      //   }
+      // };
 
 
-      for (var i = 0; i < app.registrations.length; i++) {
-        var oneregistration = app.registrations.models[i]
-        if ( oneregistration.attributes.user_id === userID ) {
+      // for (var i = 0; i < app.registrations.length; i++) {
+      //   var oneregistration = app.registrations.models[i]
+      //   if ( oneregistration.attributes.user_id === userID ) {
 
-          var myCourseViewLearnTemplate = $('#myCourseViewLearn-template').html();
-          var myCourseViewLearnHTML = _.template(myCourseViewLearnTemplate);
-          var compiledHTML = myCourseViewLearnHTML(onecourse.attributes); 
-          $('#landing-main').append(compiledHTML);
+      //     var myCourseViewLearnTemplate = $('#myCourseViewLearn-template').html();
+      //     var myCourseViewLearnHTML = _.template(myCourseViewLearnTemplate);
+      //     var compiledHTML = myCourseViewLearnHTML(onecourse.attributes); 
+      //     $('#landing-main').append(compiledHTML);
        
 
 
-        }
-      };
+      //   }
+      // };
 
 
 
