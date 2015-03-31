@@ -6,6 +6,27 @@
     <div id="landing-main"></div>
   </div>
 
+<script id="stripe-template" type="text/x-underscore-template">
+  <%= form_tag '/charges', :method => 'post' do %>
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<%= ENV["PUBLISHABLE_KEY"] %>"
+    data-image="/assets/chalk.png"
+    data-name="Demo Site"
+    data-description="2 widgets"
+    data-currency="usd"
+    data-amount="2000"></script>
+  <% end %>
+</script>
+
+
+
+<script>
+  $(window).on("popstate", function () {
+    console.log("WOOOOOOOO")
+  });
+</script>
+
 
 <script id="newCourseView-template" type="text/x-template">
   <h2>Create Course</h2>

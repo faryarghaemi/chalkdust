@@ -3,12 +3,14 @@ var app = app || {};
 app.CourseView = Backbone.View.extend({
   el: '#landing-main',
   events: {
-    'click #register': 'registerCourse' 
+    // 'click #register': 'registerCourse' 
     // 'click .stripe-button': 'registerCourse', 
-    // 'click .iconTick'
+    'click .iconTick': 'iconTick'
   }, 
 
   render: function (result) {
+
+
     app.courseInfo = result; 
     this.$el.empty(); 
     var courseViewTemplate = $('#courseView-template').html();
@@ -27,8 +29,32 @@ app.CourseView = Backbone.View.extend({
       
     }
 
+
+
     var compiledHTML = courseViewHTML(options); 
-    $('#landing-main').append(compiledHTML); 
+    $('#landing-main').append(compiledHTML);
+
+// stripe stuff
+
+//     <script id="stripe-template" type="text/x-underscore-template">
+//   <%= form_tag '/charges', :method => 'post' do %>
+//   <script
+//     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+//     data-key="<%= ENV["PUBLISHABLE_KEY"] %>"
+//     data-image="/assets/chalk.png"
+//     data-name="Demo Site"
+//     data-description="2 widgets"
+//     data-currency="aud"
+//     data-amount="2000"></script>
+//   <% end %>
+// </script>
+
+
+
+
+    var newCourseViewHTML = $('#stripe-template').html();
+
+    this.$el.append(newCourseViewHTML); 
 
 
 // #######################################################
@@ -46,28 +72,6 @@ app.CourseView = Backbone.View.extend({
 
   registerCourse: function (event) {
     event.preventDefault();
-
-// stripe stuff
-
-//     var newCourseViewHTML = $('#newCourseView-template').html();
-
-//     this.$el.html(newCourseViewHTML);
-
-
-//     <form action="/charge" method="POST">
-//   <script
-//     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-//     data-key="pk_test_gbvyNMHRqJfUgV8tK0bqdngM"
-//     data-image="/img/documentation/checkout/marketplace.png"
-//     data-name="Demo Site"
-//     data-description="2 widgets"
-//     data-currency="aud"
-//     data-amount="2000">
-//   </script>
-// </form>
-
-// stripe stuff
-
     event.stopPropagation();
     event.stopImmediatePropagation();
 
@@ -115,6 +119,13 @@ app.CourseView = Backbone.View.extend({
 
 
    }); 
+
+  }, 
+
+  iconTick: function () {
+    console.log('icon has been ticked'); 
+
+
 
   }
 
