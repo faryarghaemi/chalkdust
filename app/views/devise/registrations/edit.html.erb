@@ -35,6 +35,36 @@
       </div>
     </div>
 
+      <div class="form-group">
+      <%= f.label :project_one, :value => 'Project One' %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.file_field :project_one %>
+          <%= f.text_field :remote_project_one_url, :placeholder => 'or project url' %>
+        </div>
+      </div>
+    </div>
+
+      <div class="form-group">
+      <%= f.label :project_two, :value => 'Project Two' %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.file_field :project_two %>
+          <%= f.text_field :remote_project_two_url, :placeholder => 'or project url' %>
+        </div>
+      </div>
+    </div>
+
+      <div class="form-group">
+      <%= f.label :project_three, :value => 'Project Three' %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.file_field :project_three %>
+          <%= f.text_field :remote_project_three_url, :placeholder => 'or project url' %>
+        </div>
+      </div>
+    </div>
+
     <div class="form-group">
       <%= f.label :linkedin_id %>
       <div class="row">
@@ -45,7 +75,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :image %>
+      <%= f.label :image, :value => 'Profile Picture' %>
       <div class="row">
         <div class="col-sm-6">
           <%= f.file_field :image %>
@@ -100,12 +130,139 @@
       </div>
     </div>
 
-    <div class="row">
+
+  </div>
+  <div class="col-sm-6"> 
+    <h1>Edit your timeline</h1>
+
+        <div class="form-group">
+      <%= f.label :year1 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :year1, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :headline1 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :headline1, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :detail1 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :detail1, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :year2 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :year2, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :headline2 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :headline2, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :detail2 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :detail2, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :year3 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :year3, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :headline3 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :headline3, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :detail3 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :detail3, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :year4 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :year4, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :headline4 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :headline4, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :detail4 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :detail4, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :year5 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :year5, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :headline5 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :headline5, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+        <div class="form-group">
+      <%= f.label :detail5 %>
+      <div class="row">
+        <div class="col-sm-6">
+          <%= f.text_field :detail5, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+      
+  </div>
+
+      <div class="row">
       <div class="col-sm-6">
         <%= f.submit "Update", class: "btn btn-primary" %> - <%= link_to "Cancel", inside_path %>
       </div>
     </div>
 
     <% end %>
-  </div>
 </div>

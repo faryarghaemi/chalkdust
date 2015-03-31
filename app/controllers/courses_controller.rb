@@ -7,6 +7,17 @@ class CoursesController < ApplicationController
     end
   end
 
+  # def set_content_type  
+  #   headers["Content-Type"] = "image/svg+xml"  
+  # end
+
+
+  # def interactive 
+  #   respond_to do |format|  
+  #     format.svg  
+  #   end  
+  # end 
+
  #  def mycourses
  #   @current_user = User.find_by :id => session[:user_id]
  #   @mycourses = @current_user.courses
@@ -16,7 +27,7 @@ class CoursesController < ApplicationController
 
   def allusers
     @users = User.all 
-    render :json => @users
+    render :json => @users, :methods => [:projects]
   end 
 
   def index

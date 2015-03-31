@@ -3,21 +3,30 @@ app = app || {};
 
 app.Router = Backbone.Router.extend({
   routes: {
-  '': 'coursesView', 
-  'mycourses': 'myCourses', 
-  'create-course': 'newCourse', 
-  'courses/:id': 'viewCourse', 
-  'courses/:course_id/registrations/:id': 'viewRegistration', 
-  'allusers/:id': 'viewUser'
+    '': 'coursesView', 
+    'mycourses': 'myCourses', 
+    'create-course': 'newCourse', 
+    'courses/:id': 'viewCourse', 
+    'courses/:course_id/registrations/:id': 'viewRegistration', 
+    'allusers/:id': 'viewUser'
   }, 
 
-  initialize: function () {
-    app.courses = new app.Courses();
-    app.registrations = new app.Registrations(); 
-    app.users = new app.Users();
-  },
+  // initialize: function () {
+  //   app.courses = new app.Courses();
+  //   app.registrations = new app.Registrations(); 
+  //   app.users = new app.Users();
+  // },
   
   coursesView: function () {
+    // console.log("Courses View run")
+    // if ( !window.location.href.match(/#/) ) { // if it doesn't have a hash in the URL
+    //   if (( window.location.href === window.location.origin + "/") || ( window.location.href === window.location.origin )) {
+    //     console.log("Home Page for Backbone.")
+    //   } else {
+    //     return false;
+    //   }
+    // }
+
     $('#landing-main').empty();
     var courses = app.courses.fetch();
     var registrations = app.registrations.fetch();
@@ -28,7 +37,6 @@ app.Router = Backbone.Router.extend({
       var course = app.courses.get(id); 
       var coursesView = new app.CoursesView({model: course});
       coursesView.render();
-
     }); 
 
   }, 
@@ -36,8 +44,14 @@ app.Router = Backbone.Router.extend({
   newCourse: function () {
     $('#landing-main').empty();
 
-    var newCourseView = new app.NewCourseView();
-    newCourseView.render(); 
+    app.users.fetch().done(function () {
+      
+      var newCourseView = new app.NewCourseView();
+      newCourseView.render(); 
+
+
+    }); 
+
 
   }, 
 

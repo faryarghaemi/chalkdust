@@ -1,8 +1,8 @@
 var app = app || {}; 
 
-// app.courses = new app.Courses();
-// app.registrations = new app.Registrations(); 
-// app.users = new app.Users();
+app.courses = new app.Courses();
+app.registrations = new app.Registrations(); 
+app.users = new app.Users();
 
 $(document).ready(function() {
   // if ($('#landing-main').length === 0) {
@@ -10,7 +10,8 @@ $(document).ready(function() {
   // };
 
   _.templateSettings = {
-    interpolate: /\{\{(.+?)\}\}/g
+    interpolate: /\{\{(.+?)\}\}/gim, // <%= %>
+    evaluate: /\{@(.+?)@\}/gim // <% %>
   };
 
   

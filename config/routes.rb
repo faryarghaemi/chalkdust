@@ -11,7 +11,9 @@ Chalkdust::Application.routes.draw do
   # mine
   get '/currentuser' => 'courses#currentuser'
   get '/allusers' => 'courses#allusers'
-  # get '/mycourses' => 'courses#mycourses'
+  # get '/interactive' => 'courses#interactive'
+  get '/interactive' => 'admin/users#interactive'
+
   resources :charges
 
 
@@ -27,6 +29,8 @@ Chalkdust::Application.routes.draw do
   namespace :admin do
     root "base#index"
     resources :users
+    get '/interactive' => 'admin/users#interactive'
+
     get "posts/drafts", to: "posts#drafts", as: "posts_drafts"
     get "posts/dashboard", to: "posts#dashboard", as: "posts_dashboard"
     resources :posts

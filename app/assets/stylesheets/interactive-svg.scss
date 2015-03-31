@@ -1,3 +1,5 @@
+
+
 @-moz-keyframes left-brace-intro {
   0% {
     -moz-transform: translateX(220px);
@@ -310,24 +312,9 @@
   margin: 1em;
   text-align: center; }
 
-@font-face {
-  font-family: 'LeagueGothic';
-  src: url("../fonts/league-gothic/league-gothic.eot");
-  src: url("../fonts/league-gothic/league-gothic.eot?#iefix") format("embedded-opentype"), url("../fonts/league-gothic/league-gothic.woff") format("woff"), url("../fonts/league-gothic/league-gothic.ttf") format("truetype"), url("../fonts/league-gothic/league-gothic.svg#League_Gothic-webfont") format("svg");
-  font-weight: normal;
-  font-style: normal; }
 
-#stage {
-  background-color: #fff;
-  width: 1024px;
-  height: 1386px;
-  margin: auto;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 10px; }
 
-#stage a {
-  color: #3a7ea2; }
+
 
 [id$=badge], [id$=title], [id$=details] {
   -webkit-transition: -webkit-transform 0.25s ease-in-out;
@@ -378,18 +365,18 @@
   transform-origin: 517px 484px; }
 
 #coffee-badge {
-  -webkit-transform-origin: 445px 488px;
-  -moz-transform-origin: 445px 488px;
-  -ms-transform-origin: 445px 488px;
-  -o-transform-origin: 445px 488px;
-  transform-origin: 445px 488px; }
+  -webkit-transform-origin: 430px 200px;
+  -moz-transform-origin: 430px 200px;
+  -ms-transform-origin: 430px 200px;
+  -o-transform-origin: 430px 200px;
+  transform-origin: 430px 200px; }
 
 #coffee-title {
-  -webkit-transform-origin: 310px 396px;
-  -moz-transform-origin: 310px 396px;
-  -ms-transform-origin: 310px 396px;
-  -o-transform-origin: 310px 396px;
-  transform-origin: 310px 396px; }
+  -webkit-transform-origin: 330px 150px;
+  -moz-transform-origin: 330px 150px;
+  -ms-transform-origin: 330px 150px;
+  -o-transform-origin: 330px 150px;
+  transform-origin: 330px 150px; }
 
 #coffee-details {
   -webkit-transform-origin: 311px 489px;
@@ -406,18 +393,18 @@
   transform-origin: 514px 603px; }
 
 #design-badge {
-  -webkit-transform-origin: 580px 606px;
-  -moz-transform-origin: 580px 606px;
-  -ms-transform-origin: 580px 606px;
-  -o-transform-origin: 580px 606px;
-  transform-origin: 580px 606px; }
+  -webkit-transform-origin: 580px 300px;
+  -moz-transform-origin: 580px 300px;
+  -ms-transform-origin: 580px 300px;
+  -o-transform-origin: 580px 300px;
+  transform-origin: 580px 300px; }
 
 #design-title {
-  -webkit-transform-origin: 712px 513px;
-  -moz-transform-origin: 712px 513px;
-  -ms-transform-origin: 712px 513px;
-  -o-transform-origin: 712px 513px;
-  transform-origin: 712px 513px; }
+  -webkit-transform-origin: 580px 300px;
+  -moz-transform-origin: 580px 300px;
+  -ms-transform-origin: 580px 300px;
+  -o-transform-origin: 580px 300px;
+  transform-origin: 580px 300px; }
 
 #design-details {
   -webkit-transform-origin: 710px 620px;
@@ -434,18 +421,18 @@
   transform-origin: 511px 769px; }
 
 #build-badge {
-  -webkit-transform-origin: 445px 775px;
-  -moz-transform-origin: 445px 775px;
-  -ms-transform-origin: 445px 775px;
-  -o-transform-origin: 445px 775px;
-  transform-origin: 445px 775px; }
+  -webkit-transform-origin: 400px 400px;
+  -moz-transform-origin: 400px 400px;
+  -ms-transform-origin: 400px 400px;
+  -o-transform-origin: 400px 400px;
+  transform-origin: 400px 400px; }
 
 #build-title {
-  -webkit-transform-origin: 312px 680px;
-  -moz-transform-origin: 312px 680px;
-  -ms-transform-origin: 312px 680px;
-  -o-transform-origin: 312px 680px;
-  transform-origin: 312px 680px; }
+  -webkit-transform-origin: 400px 600px;
+  -moz-transform-origin: 400px 600px;
+  -ms-transform-origin: 400px 600px;
+  -o-transform-origin: 400px 600px;
+  transform-origin: 400px 600px; }
 
 #build-details {
   -webkit-transform-origin: 310px 790px;
@@ -462,18 +449,18 @@
   transform-origin: 512px 1002px; }
 
 #complain-badge {
-  -webkit-transform-origin: 586px 1000px;
-  -moz-transform-origin: 586px 1000px;
-  -ms-transform-origin: 586px 1000px;
-  -o-transform-origin: 586px 1000px;
-  transform-origin: 586px 1000px; }
+  -webkit-transform-origin: 586px 700px;
+  -moz-transform-origin: 586px 700px;
+  -ms-transform-origin: 586px 700px;
+  -o-transform-origin: 586px 700px;
+  transform-origin: 586px 700px; }
 
 #complain-title {
-  -webkit-transform-origin: 718px 921px;
-  -moz-transform-origin: 718px 921px;
-  -ms-transform-origin: 718px 921px;
-  -o-transform-origin: 718px 921px;
-  transform-origin: 718px 921px; }
+  -webkit-transform-origin: 718px 700px;
+  -moz-transform-origin: 718px 700px;
+  -ms-transform-origin: 718px 700px;
+  -o-transform-origin: 718px 700px;
+  transform-origin: 718px 700px; }
 
 #complain-details {
   -webkit-transform-origin: 717px 1021px;
@@ -490,18 +477,18 @@
   transform-origin: 513px 1199px; }
 
 #beer-badge {
-  -webkit-transform-origin: 444px 1193px;
-  -moz-transform-origin: 444px 1193px;
-  -ms-transform-origin: 444px 1193px;
-  -o-transform-origin: 444px 1193px;
-  transform-origin: 444px 1193px; }
+  -webkit-transform-origin: 350px 800px;
+  -moz-transform-origin: 350px 800px;
+  -ms-transform-origin: 350px 800px;
+  -o-transform-origin: 350px 800px;
+  transform-origin: 350px 800px; }
 
 #beer-title {
-  -webkit-transform-origin: 313px 1097px;
-  -moz-transform-origin: 313px 1097px;
-  -ms-transform-origin: 313px 1097px;
-  -o-transform-origin: 313px 1097px;
-  transform-origin: 313px 1097px; }
+  -webkit-transform-origin: 313px 850px;
+  -moz-transform-origin: 313px 850px;
+  -ms-transform-origin: 313px 850px;
+  -o-transform-origin: 313px 850px;
+  transform-origin: 313px 850px; }
 
 #beer-details {
   -webkit-transform-origin: 316px 1202px;

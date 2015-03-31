@@ -1,7 +1,6 @@
 var app = app || {};
 
 
-
 app.NewCourseView = Backbone.View.extend({
     el: '#landing-main',
     events: {
@@ -53,10 +52,12 @@ app.NewCourseView = Backbone.View.extend({
                 user_id: userID
             });
 
+            console.log('userID, userInstructor', userID, userInstructor); 
+
            if (userID && userInstructor) {
             course.save();
             app.courses.add(course);
-            app.router.navigate('courses', true);
+            app.router.navigate('', true);
 
            } else { 
                 var instructorFalseHTML = $('#instructor-false-template').html();

@@ -10,6 +10,13 @@
   margin-bottom: 1em;
 }
 
+
+.row { 
+  padding-bottom: 0; 
+
+
+}
+
 .left { 
   width: 48%; 
   float: left; 
@@ -20,6 +27,22 @@
   width: 48%; 
   float: right; 
     
+ }
+
+ .center { 
+  height: 100%; 
+  border: solid black 1.5em; 
+
+ }
+
+ .user-view { 
+  text-align: center; 
+  margin-top: 0; 
+ }
+
+ #user-view-header { 
+  margin-top: 0; 
+
  }
 
 .single-course .details {
@@ -37,6 +60,10 @@
     width: 8%; 
     display: inline; 
 
+}
+
+#linkedin-button { 
+  margin-bottom: 1em; 
 }
 
 /*#image

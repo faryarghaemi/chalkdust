@@ -21,14 +21,29 @@
 #  unconfirmed_email      :string
 #  created_at             :datetime
 #  updated_at             :datetime
-#  image                  :text
+#  image                  :string
 #  linkedin_id            :text
 #  is_instructor          :boolean          default("false")
 #  first_name             :string
 #  last_name              :string
-#  project_one            :text
-#  project_two            :text
-#  project_three          :text
+#  project_one            :string
+#  project_two            :string
+#  project_three          :string
+#  year1                  :string
+#  year2                  :string
+#  year3                  :string
+#  year4                  :string
+#  year5                  :string
+#  headline1              :string
+#  headline2              :string
+#  headline3              :string
+#  headline4              :string
+#  headline5              :string
+#  detail1                :string
+#  detail2                :string
+#  detail3                :string
+#  detail4                :string
+#  detail5                :string
 #
 
 class User < ActiveRecord::Base
@@ -59,7 +74,13 @@ has_many :ratings, through: :courses
   end
 
   mount_uploader :image, ImageUploader 
+  mount_uploader :project_one, ProjectOneUploader 
+  mount_uploader :project_two, ProjectTwoUploader 
+  mount_uploader :project_three, ProjectThreeUploader 
 
+  def projects
+    [project_one.url, project_two.url, project_three.url].compact
+  end
 
   # Validations
   # :email
