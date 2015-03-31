@@ -8,6 +8,18 @@ app.MyCoursesView = Backbone.View.extend({
     $.getJSON('/currentuser').done(function(user) { 
       var userID = user.id; 
 
+  // $('#landing-main').append('<img id="mycoursechalk" class="single-course relative" src="/assets/chalkboardnew.png">');
+
+  // $('#landing-main').css('background-image', 'url(' + '/assets/chalkboardnew.png' + ')');
+
+  // $('myOjbect').css('background-image', 'url(' + imageUrl + ')');
+
+
+
+  var $div = $('<div/>'); 
+  var courseDiv = $div.addClass('mycourse-container'); 
+  $('#landing-main').append(courseDiv); 
+ 
 
       var courseIDArray = []; 
       // courses i am instructing
@@ -16,13 +28,18 @@ app.MyCoursesView = Backbone.View.extend({
         if (onecourse.attributes.user_id === userID ) {
 
           courseIDArray.push(onecourse.attributes.id);
+
           var myCourseViewInstructTemplate = $('#myCourseViewInstruct-template').html();
           var myCourseViewInstructHTML = _.template(myCourseViewInstructTemplate);
           var compiledHTML = myCourseViewInstructHTML(onecourse.attributes); 
-          $('#landing-main').append(compiledHTML);
+          $('.mycourse-container').append(compiledHTML);
+         
+
 
         }
       };
+
+
 
 
 

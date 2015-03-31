@@ -39,37 +39,36 @@ class Admin::UsersController < Admin::BaseController
     new_params = user_params.dup
     new_params[:email] = new_params[:email].strip
 
-    old_image = @user.image
-    new_params = user_params.dup
-    new_params[:image] = new_params[:image]
+    # @user.email = new_params[:email]
+    # @user.first_name = new_params[:first_name]
+    # @user.last_name = new_params[:last_name]
+    # @user.linkedin_id = new_params[:linkedin_id]
+    # @user.image = new_params[:image]
+    # @user.project_one = new_params[:project_one]
+    # @user.project_two = new_params[:project_two]
+    # @user.project_three = new_params[:project_three]
+    # @user.year1 = new_params[:year1]
+    # @user.year2 = new_params[:year2]
+    # @user.year3 = new_params[:year3]
+    # @user.year4 = new_params[:year4]
+    # @user.year5 = new_params[:year5]
+    # @user.detail1 = new_params[:detail1]
+    # @user.detail2 = new_params[:detail2]
+    # @user.detail3 = new_params[:detail3]
+    # @user.detail4 = new_params[:detail4]
+    # @user.detail5 = new_params[:detail5]
+    # @user.headline1 = new_params[:headline1]
+    # @user.headline2 = new_params[:headline2]
+    # @user.headline3 = new_params[:headline3]
+    # @user.headline4 = new_params[:headline4]
+    # @user.headline5 = new_params[:headline5]
+    # @user.is_instructor = new_params[:is_instructor]
 
-    @user.email = new_params[:email]
-    @user.first_name = new_params[:first_name]
-    @user.last_name = new_params[:last_name]
-    @user.linkedin_id = new_params[:linkedin_id]
-    @user.image = new_params[:image]
-    @user.project_one = new_params[:project_one]
-    @user.project_two = new_params[:project_two]
-    @user.project_three = new_params[:project_three]
-    @user.year1 = new_params[:year1]
-    @user.year2 = new_params[:year2]
-    @user.year3 = new_params[:year3]
-    @user.year4 = new_params[:year4]
-    @user.year5 = new_params[:year5]
-    @user.detail1 = new_params[:detail1]
-    @user.detail2 = new_params[:detail2]
-    @user.detail3 = new_params[:detail3]
-    @user.detail4 = new_params[:detail4]
-    @user.detail5 = new_params[:detail5]
-    @user.headline1 = new_params[:headline1]
-    @user.headline2 = new_params[:headline2]
-    @user.headline3 = new_params[:headline3]
-    @user.headline4 = new_params[:headline4]
-    @user.headline5 = new_params[:headline5]
-
-    @user.is_instructor = new_params[:is_instructor]
     @user.password = new_params[:password] if new_params[:password].strip.length > 0
     @user.password_confirmation = new_params[:password_confirmation] if new_params[:password_confirmation].strip.length > 0
+
+    @user.update(user_params)
+    
 
     if current_user.id != @user.id
       @user.admin = new_params[:admin]=="0" ? false : true

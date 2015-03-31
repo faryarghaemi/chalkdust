@@ -7,8 +7,6 @@
   </div>
 
 
-
-
 <script id="newCourseView-template" type="text/x-template">
   <h2>Create Course</h2>
   <form> 
@@ -69,6 +67,16 @@
 </script>
 
 
+<script id="myCourseViewInstruct-template" type="text/x-underscore-template">
+  <div class="single-course mycourse-view">
+  <h3>{{name}}</h3>
+  <p>{{moment( weekdays ).format( 'dddd' )}}</p>
+  <p>{{moment( start_time ).format( 'h:mm a' )}} - {{moment( end_time ).format( 'h:mm a' )}}</p>
+  </div>
+  <div id="instruct"></div>
+</script>
+
+
 <script id="coursesView-template" type="text/x-underscore-template">
   <div class="single-course relative col-lg-6 col-md-6">
     <%= image_tag('chalkboardnew.png') %>
@@ -99,13 +107,7 @@
   </div>
 </script>
 
-<script id="myCourseViewInstruct-template" type="text/x-underscore-template">
-  <div class="left">
-  <h2>Instructing</h2> 
-  <h3>{{name}}</h3>
-  </div>
-  <div id="instruct"></div>
-</script>
+
 
 <script id="myCourseViewInstructStudents-template" type="text/x-underscore-template">
   <div class="left">
@@ -171,8 +173,7 @@
 
 
 
-<!--     <p>{{moment( weekdays ).format( 'dddd' )}}</p>
- -->
+
 
 
 
