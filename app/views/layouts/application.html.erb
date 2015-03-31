@@ -37,12 +37,16 @@
   
   <%= render 'layouts/footer' %>
   
-<!--     $(document).ready(function () {
+  <script>
+    $(document).ready(function () {
       $("a.backbone").on("click", function () {
         event.preventDefault();
         window.location = $(this).attr("href");
+        // console.log("WHAT")
+        // app.router.navigate( "/create-course", { trigger: true } )
       })
-    }); -->
+    });
+  </script>
 
 </body>
 </html>

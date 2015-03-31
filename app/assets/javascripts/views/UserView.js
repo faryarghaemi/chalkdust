@@ -62,8 +62,10 @@ app.UserView = Backbone.View.extend({
         var userViewTry2HTML = $('#userViewTry2-template').html();
         $('#user-right').append(userViewTry2HTML);
 
+        // debugger;
+
         var svg = function() {
-            $("#stage").load('interactive.svg', function(response) {
+            $("#stage").load('interactive.svg/' + user.id, function(response) {
 
                 $(this).addClass("svgLoaded");
 

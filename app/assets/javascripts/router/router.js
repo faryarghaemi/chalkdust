@@ -11,11 +11,12 @@ app.Router = Backbone.Router.extend({
     'allusers/:id': 'viewUser'
   }, 
 
-  // initialize: function () {
-  //   app.courses = new app.Courses();
-  //   app.registrations = new app.Registrations(); 
-  //   app.users = new app.Users();
-  // },
+  initialize: function () {
+    console.log("Trying!")
+    // app.courses = new app.Courses();
+    // app.registrations = new app.Registrations(); 
+    // app.users = new app.Users();
+  },
   
   coursesView: function () {
     // console.log("Courses View run")
@@ -27,25 +28,27 @@ app.Router = Backbone.Router.extend({
     //   }
     // }
 
-    $('#landing-main').empty();
-    var courses = app.courses.fetch();
-    var registrations = app.registrations.fetch();
+
+    if ( $("#landing-container").length !== 0 ) {
+      $('#landing-main').empty();
+      var courses = app.courses.fetch();
+      var registrations = app.registrations.fetch();
 
 
-    $.when(courses, registrations).then(function (id){
+      $.when(courses, registrations).then(function (id){
 
-      var course = app.courses.get(id); 
-      var coursesView = new app.CoursesView({model: course});
-      coursesView.render();
-    }); 
+        var course = app.courses.get(id); 
+        var coursesView = new app.CoursesView({model: course});
+        coursesView.render();
+      }); 
+    }
 
   }, 
 
   newCourse: function () {
     $('#landing-main').empty();
-
     app.users.fetch().done(function () {
-      
+      // debugger;
       var newCourseView = new app.NewCourseView();
       newCourseView.render(); 
 
@@ -73,9 +76,15 @@ app.Router = Backbone.Router.extend({
 
     app.users.fetch().done(function () {
       var user = app.users.get(id); 
-      var userView = new app.UserView({model: user}); 
-      userView.render(user);
 
+      $.ajax("/allusers", {
+        data: {  
+          user_id: id
+        }
+      }).done(function (response) {
+        var userView = new app.UserView({model: user}); 
+        userView.render(user);
+      }); 
 
     }); 
 

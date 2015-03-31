@@ -25,8 +25,10 @@ class Admin::UsersController < Admin::BaseController
 
 
   def interactive
-    @user = @current_user
-    # @user = User.where( :id => params["user_id"])
+    # binding.pry
+    # @user = @current_user
+    @user = User.where( :id => params["id"])
+    @user = @user[0]
     respond_to do |format|  
       format.svg  
     end  

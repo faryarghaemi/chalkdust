@@ -12,7 +12,7 @@ Chalkdust::Application.routes.draw do
   get '/currentuser' => 'courses#currentuser'
   get '/allusers' => 'courses#allusers'
   # get '/interactive' => 'courses#interactive'
-  get '/interactive.svg' => 'admin/users#interactive'
+  get '/interactive.svg/:id' => 'admin/users#interactive'
 
   resources :charges
 
