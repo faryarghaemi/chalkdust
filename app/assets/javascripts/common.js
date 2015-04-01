@@ -17,7 +17,7 @@ $(document).ready(function() {
   
   app.router = new app.Router();
   
-  Backbone.history.start({pushState: true});
+  Backbone.history.start();
 });
 
 

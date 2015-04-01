@@ -1,9 +1,29 @@
 
 .svg { 
-margin-top: -20%; 
-margin-left: 0%; 
+margin-top: -15%; 
+margin-left: 16%; 
 margin-right: 0%; 
 
+}
+
+svg { 
+  height: 500px; 
+
+}
+
+.little-skills { 
+  margin: .5em 2em;
+  width: 20%; 
+  padding: 1em;
+  border: 1px solid;
+  border-radius: 20px;
+  text-align: center; 
+
+}
+
+
+#wrap { 
+background: black; 
 
 }
 .relative { 

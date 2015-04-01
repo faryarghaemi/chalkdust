@@ -80,8 +80,27 @@ app.UserView = Backbone.View.extend({
         svg();
 
 
+        // linkedin api 
+
+        var userViewTry3Template = $('#userViewTry3-template').html();
+
+        $('.col-sm-12').after(userViewTry3Template);
+
+        array = user.linkedin_id.split(',');
+
+        for (var i = 0; i < array.length -1; i++) {
+            var skill = array[i]; 
+
+            var $p = $('<p/>');
+            $p.addClass('col-lg-3 little-skills'); 
+            $p.text(skill);  
+            $('#linkedinView').append($p);
+
+        };
 
 
+
+       
 
 
     },

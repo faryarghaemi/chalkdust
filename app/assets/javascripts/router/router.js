@@ -12,7 +12,7 @@ app.Router = Backbone.Router.extend({
   }, 
 
   initialize: function () {
-    console.log("Trying!")
+    // console.log("Trying!")
     // app.courses = new app.Courses();
     // app.registrations = new app.Registrations(); 
     // app.users = new app.Users();

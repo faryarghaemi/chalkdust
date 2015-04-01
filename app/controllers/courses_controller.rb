@@ -8,41 +8,41 @@ class CoursesController < ApplicationController
   end
 
   def linkedin 
-    @code = params["code"]
-    @state = params["state"]
+    # @code = params["code"]
+    # @state = params["state"]
+    # @info = env['omniauth.auth']
+    # @id = env['omniauth.auth']['uid']
+    # me = api.profile
+    # my_name = api.profile(fields: ["first-name", "last-name"])
+    # my_profile = api.profile(fields: ["skills", "educations", "courses", "three-current-positions"])
+    # skills = my_profile['skills']
+    # job_titles = api.profile(fields: ["id", {"positions" => ["title"]}])
 
+    token = env['omniauth.auth']['credentials']['token']
+    api = LinkedIn::API.new(token)
 
-    @token = env['omniauth.auth']['credentials']['token']
-
-    @info = env['omniauth.auth']
-    @id = env['omniauth.auth']['uid']
-
-
-    # linkedin_client = LinkedIn::Client.new(ENV['LINKEDIN_KEY'], ENV['LINKEDIN_SECRET'])
-
-    # omniauth['credentials']['token']
-    # omniauth['uid']
-
-    api = LinkedIn::API.new(@token)
-    me = api.profile
-
+ 
     my_name = api.profile(fields: ["first-name", "last-name"])
 
-    my_profile = api.profile(fields: ["skills", "educations", "courses", "three-current-positions"])
+    linkedin = ""
+    api.profile(fields: ["skills"]).skills.all.each do |x| 
+      linkedin += ( x.skill.name + ',') 
+    end 
 
-    my_profile['skills']
+    user = current_user
+    user.linkedin_id = linkedin
+    user.first_name = my_name.first_name
+    user.last_name = my_name.last_name
+    user.save
 
-    binding.pry
+    # binding.pry
 
     redirect_to "/users/edit"
   end 
 
-
-
   # def set_content_type  
   #   headers["Content-Type"] = "image/svg+xml"  
   # end
-
 
   # def interactive 
   #   respond_to do |format|  
