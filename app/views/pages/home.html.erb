@@ -1,13 +1,9 @@
-<% title("Home Page") %>
-<h1><%= image_tag('chalk.png', :class => "chalk_icon") %> Chalkdust</h1>
-
-
-  <div id="landing-container">
+<div id="landing-container">
     <div id="landing-main"></div>
-  </div>
+</div>
 
 <script id="stripe-template" type="text/x-underscore-template">
-<button id="customButton" class="btn btn-success">Purchase</button>
+<button id="customButton" class="btn btn-success">Sign Up</button>
 </script> 
 
 
@@ -16,11 +12,11 @@
   <form> 
     <div>
       <label for="name">Name</label><br> 
-      <input id="name" placeholder="name"></input> 
+      <input type="text" id="name" placeholder="name" required></input> 
     </div>
     <div>
       <label for="description">Description</label><br> 
-      <input id="description" placeholder="description"></input> 
+      <input type="text" id="description" placeholder="description"></input> 
     </div>
     <div>
       <label for="start_date">Start Date</label><br> 
@@ -40,11 +36,11 @@
     </div>
     <div>
       <label for="course_cost">Course Cost</label><br> 
-      <input id="course_cost" placeholder="$200"></input>
+      <input type="number" id="course_cost" placeholder="$200"></input>
     </div>
     <div>
       <label for="weekdays">Weekdays</label><br> 
-      <input id="weekdays" placeholder="monday"></input>
+      <input id="weekdays" placeholder="Mondays"></input>
     </div>
     <div>
       <label for="skill_level">Skill Level</label><br> 
@@ -156,7 +152,7 @@
 
   <script id="courseView-template" type="text/x-underscore-template">
   <div class="single-course">
-    <h1><a id="{{course.id}}" data-course-id = {{ course.id }}>{{course.name}}</a></h1>
+    <h1 class="courseViewlinks"><a id="{{course.id}}" data-course-id = {{ course.id }}>{{course.name}}</a></h1>
     <p>with <a id="{{user.id}}" data-course-id = {{ user.id }}>{{user.first_name}} {{user.last_name}}</a></p>
     <p>{{moment( course.start_date ).format( 'MMMM D, YYYY' )}}</p>
     <p>{{course.description}}</p> 

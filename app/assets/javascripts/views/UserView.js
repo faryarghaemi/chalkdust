@@ -32,7 +32,8 @@ app.UserView = Backbone.View.extend({
                 centerPadding: '60px',
                 slidesToShow: 1,
                 autoplay: true,
-                adaptiveHeight: false,
+                variableWidth: false,
+                adaptiveHeight: false, 
                 pauseOnHover: false,
                 responsive: [{
                     breakpoint: 768,
@@ -82,9 +83,11 @@ app.UserView = Backbone.View.extend({
 
         // linkedin api 
 
+        $('#footer').before('<div class="test"></div>');
+
         var userViewTry3Template = $('#userViewTry3-template').html();
 
-        $('.col-sm-12').after(userViewTry3Template);
+        $('.test').append(userViewTry3Template);
 
         array = user.linkedin_id.split(',');
 

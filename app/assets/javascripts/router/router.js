@@ -31,6 +31,8 @@ app.Router = Backbone.Router.extend({
 
     if ( $("#landing-container").length !== 0 ) {
       $('#landing-main').empty();
+      $('.test').empty();
+
       var courses = app.courses.fetch();
       var registrations = app.registrations.fetch();
 
@@ -47,6 +49,8 @@ app.Router = Backbone.Router.extend({
 
   newCourse: function () {
     $('#landing-main').empty();
+    $('.test').empty();
+
     app.users.fetch().done(function () {
       // debugger;
       var newCourseView = new app.NewCourseView();
@@ -59,6 +63,8 @@ app.Router = Backbone.Router.extend({
   }, 
 
   viewCourse: function (id) {
+    $('.test').empty();
+
     var users = app.users.fetch(); 
     var courses = app.courses.fetch();
     var registrations = app.registrations.fetch();
@@ -73,6 +79,8 @@ app.Router = Backbone.Router.extend({
 
   viewUser: function (id) {
     $('#landing-main').empty();
+    $('.test').empty();
+
 
     app.users.fetch().done(function () {
       var user = app.users.get(id); 
@@ -92,6 +100,8 @@ app.Router = Backbone.Router.extend({
 
   viewRegistration: function (courseID, registrationID) {
     $('#landing-main').empty();
+    $('.test').empty();
+
 
     // console.log('courseID, registrationID', courseID, registrationID); 
 
@@ -124,6 +134,8 @@ app.Router = Backbone.Router.extend({
 
   myCourses: function () {
     $('#landing-main').empty();
+    $('.test').empty();
+
 
 
     var users = app.users.fetch(); 

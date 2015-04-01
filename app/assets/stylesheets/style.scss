@@ -1,10 +1,70 @@
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+
+body { 
+
+font-family: 'Indie Flower', cursive;
+color: white;
+background-color: black;  
+
+}
+
+.details.absolute p  {
+  font-size: 1.2em; 
+  
+}
+
+.test { 
+  margin-bottom: 10em; 
+  margin-top: -8em; 
+  
+}
+
+a.navbar-brand { 
+  font-size: 2em; 
+
+}
+
+.single-course .details a {
+    color: #E2DD8F;
+    font-family: 'Indie Flower', cursive;
+}
+
+form label { 
+  margin-top: .5em; 
+  color: white; 
+
+}
+
+form input { 
+  border-radius: 20px; 
+  border-color: black; 
+  color: gray; 
+  
+}
+
+
+#create-Course, #clear-Course { 
+  background-color: black; 
+  border-color: white; 
+
+}
+
+h1, h2, h3, label { 
+
+font-family: 'Indie Flower', cursive;
+color: white; 
+
+}
+
 
 .svg { 
-margin-top: -15%; 
+margin-top: -8%; 
 margin-left: 16%; 
 margin-right: 0%; 
 
 }
+
+
 
 svg { 
   height: 500px; 
@@ -22,10 +82,7 @@ svg {
 }
 
 
-#wrap { 
-background: black; 
 
-}
 .relative { 
     position: relative;
 }
@@ -55,11 +112,13 @@ background: black;
 .mycourse-view { 
   color: white; 
   width: 50%;
-  margin: 0 auto;
+  margin-left: 12em; 
+
 }
 
 .mycourse-view h3 { 
   margin-bottom: 0; 
+  margin-left: -.8em; 
 }
 
 .mycourse-view p { 
@@ -87,7 +146,8 @@ background: black;
 
  .center { 
   height: 100%; 
-  border: solid black 1.5em; 
+  border: solid gray 1.5em; 
+  border-radius: 20px; 
 
  }
 
@@ -109,11 +169,15 @@ background: black;
 }
 
 
-
-
-.single-course .details a {
-    color: #E2DD8F;
+#linkedinView p {
+  display:inline-block
 }
+
+.test {
+  width: 100%;
+}
+
+
 
 .chalk_icon { 
     width: 8%; 
@@ -123,6 +187,22 @@ background: black;
 
 #linkedin-button { 
   margin-bottom: 1em; 
+}
+
+#customButton { 
+  background-color: black; 
+  border-color: white; 
+
+}
+
+.courseViewlinks a { 
+  color: #E2DD8F; 
+
+}
+
+.single-course p a { 
+    color: #E2DD8F; 
+
 }
 
 /*#image
