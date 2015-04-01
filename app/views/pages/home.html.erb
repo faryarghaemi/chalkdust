@@ -7,25 +7,8 @@
   </div>
 
 <script id="stripe-template" type="text/x-underscore-template">
-  <%= form_tag '/charges', :method => 'post' do %>
-  <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= ENV["PUBLISHABLE_KEY"] %>"
-    data-image="/assets/chalk.png"
-    data-name="Demo Site"
-    data-description="2 widgets"
-    data-currency="usd"
-    data-amount="2000"></script>
-  <% end %>
-</script>
-
-
-
-<script>
-  $(window).on("popstate", function () {
-    console.log("WOOOOOOOO")
-  });
-</script>
+<button id="customButton" class="btn btn-success">Purchase</button>
+</script> 
 
 
 <script id="newCourseView-template" type="text/x-template">
@@ -107,7 +90,7 @@
       <p>{{moment( course.start_date ).format( 'MMMM D, YYYY' )}}</p>
       <p>{{course.description}}</p> 
       <p>{{moment( course.start_time ).format( 'h:mm a' )}} - {{moment( course.end_time ).format( 'h:mm a' )}}</p>
-      <p>{{course.course_cost}}</p>
+      <p>{{accounting.formatMoney(course.course_cost)}}</p>
       <p>{{course.skill_level}}</p>
     </div>
   </div>
@@ -123,7 +106,7 @@
     <p>{{moment( course.start_date ).format( 'MMMM D, YYYY' )}}</p>
     <p>{{course.description}}</p> 
     <p>{{moment( course.start_time ).format( 'h:mm a' )}} - {{moment( course.end_time ).format( 'h:mm a' )}}</p>
-    <p>{{course.course_cost}}</p>
+    <p>{{accounting.formatMoney(course.course_cost)}}</p>
     <p>{{course.skill_level}}</p>
   </div>
 </script>
@@ -183,11 +166,8 @@
     <p>{{moment( course.start_date ).format( 'MMMM D, YYYY' )}}</p>
     <p>{{course.description}}</p> 
     <p>{{moment( course.start_time ).format( 'h:mm a' )}} - {{moment( course.end_time ).format( 'h:mm a' )}}</p>
-    <p>{{course.course_cost}}</p>
+    <p>{{accounting.formatMoney(course.course_cost)}}</p>
     <p>{{course.skill_level}}</p>
-    <form>
-    <button id="register " class="btn btn-success">Register</button>
-    </form>
 
   </div>
 </script>

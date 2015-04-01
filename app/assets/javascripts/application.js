@@ -20,7 +20,9 @@
 //= require moment
 //= require jquery.slick
 //= require modernizr 
+//= require lib/checkout
 //= require lib/slick
+//= require lib/accounting
 //= require lib/interactive-svg
 //= require models/course
 //= require models/registration

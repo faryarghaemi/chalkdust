@@ -7,6 +7,38 @@ class CoursesController < ApplicationController
     end
   end
 
+  def linkedin 
+    @code = params["code"]
+    @state = params["state"]
+
+
+    @token = env['omniauth.auth']['credentials']['token']
+
+    @info = env['omniauth.auth']
+    @id = env['omniauth.auth']['uid']
+
+
+    # linkedin_client = LinkedIn::Client.new(ENV['LINKEDIN_KEY'], ENV['LINKEDIN_SECRET'])
+
+    # omniauth['credentials']['token']
+    # omniauth['uid']
+
+    api = LinkedIn::API.new(@token)
+    me = api.profile
+
+    my_name = api.profile(fields: ["first-name", "last-name"])
+
+    my_profile = api.profile(fields: ["skills", "educations", "courses", "three-current-positions"])
+
+    my_profile['skills']
+
+    binding.pry
+
+    redirect_to "/users/edit"
+  end 
+
+
+
   # def set_content_type  
   #   headers["Content-Type"] = "image/svg+xml"  
   # end

@@ -1,0 +1,112 @@
+var app = app || {};
+
+app.CourseView = Backbone.View.extend({
+    el: '#landing-main',
+    events: {
+        'click #customButton': 'stripeCheckout'
+    },
+
+    render: function(result) {
+
+        app.courseInfo = result;
+        this.$el.empty();
+        var courseViewTemplate = $('#courseView-template').html();
+        var courseViewHTML = _.template(courseViewTemplate);
+
+        var course = this.model.attributes; 
+        var userID = course.user_id;
+        var userInfo = app.users.get(userID);
+        var user = userInfo.attributes;
+
+        var options = {
+
+            course: course,
+            user: user
+
+        }
+
+        var compiledHTML = courseViewHTML(options);
+        $('#landing-main').append(compiledHTML);
+
+        // stripe stuff
+        var stripeViewHTML = $('#stripe-template').html();
+        this.$el.append(stripeViewHTML);
+        var view = this;
+
+        app.handler = StripeCheckout.configure({
+            key: '<%= ENV["PUBLISHABLE_KEY"] %>',
+            image: '/assets/chalk.png',
+            token: function(token) {
+
+                app.registrations.courseID = view.model.get("id");
+                var courseID = app.registrations.courseID;
+
+                $.getJSON('/currentuser').done(function(user) {
+                    var userID = user.id;
+
+                    var registration = new app.Registration({
+
+                        course_id: courseID,
+                        user_id: userID
+
+                    });
+
+                    // for (var i = 0; i < app.registrations.length; i++) {
+                    //     var register = app.registrations.models[i]
+                    //     if (register.attributes.user_id === userID && register.attributes.course_id === courseID) {
+                    //         var courseFalseHTML = $('#course-false-template').html();
+                    //         $('#landing-main').html(courseFalseHTML);
+                    //         return;
+                    //     }
+                    // };
+
+                    registration.save().done(function() {
+                        app.registrations.add(registration);
+                        app.registrationID = registration.attributes.id;
+
+                        app.router.navigate('courses/' + app.registrations.courseID + '/registrations/' + app.registrationID, true);
+
+                    });
+                });
+            }
+        });
+    },
+
+    stripeCheckout: function(e) {
+        var view = this;
+
+        $.getJSON('/currentuser').done(function(user) {
+
+            var userID = user.id;
+            var userInfo = app.users.get(userID);
+            var course = view.model.attributes; 
+            var courseID = course.id; 
+            console.log('app.registrations.length', app.registrations.length); 
+
+
+            for (var i = 0; i < app.registrations.length; i++) {
+                var register = app.registrations.models[i]
+                
+                if (register.attributes.user_id === userID && register.attributes.course_id === courseID) {
+                  
+
+                    view.$el.empty();
+                    var courseFalseHTML = $('#course-false-template').html();
+                    $('#landing-main').html(courseFalseHTML);
+                    return;
+                }
+            };
+
+            // Open Checkout with further options
+            app.handler.open({
+                name: 'Chalkdust',
+                description: view.model.get('name'),
+                currency: 'usd',
+                email: userInfo.get('email'),
+                amount: parseInt(view.model.get('course_cost') * 100)
+            });
+            e.preventDefault();
+
+        });
+    }
+});

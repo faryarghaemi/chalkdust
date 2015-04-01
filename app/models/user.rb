@@ -44,6 +44,8 @@
 #  detail3                :string
 #  detail4                :string
 #  detail5                :string
+#  code                   :text
+#  state                  :text
 #
 
 class User < ActiveRecord::Base

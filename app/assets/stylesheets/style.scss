@@ -24,13 +24,27 @@ margin-right: 0%;
   background-repeat: no-repeat; 
   width: 100%; 
   height: 100%; 
+  background-size: contain;
+  width: 100%;
+  height: 40em;
+  background-position: 50%;
+  padding-top: 3em;
 
 }
 
 .mycourse-view { 
   color: white; 
+  width: 50%;
+  margin: 0 auto;
+}
 
- }
+.mycourse-view h3 { 
+  margin-bottom: 0; 
+}
+
+.mycourse-view p { 
+  margin: 0; 
+}
 
 
 .row { 
