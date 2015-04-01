@@ -63,12 +63,12 @@
 </script>
 
 <script id="course-false-template" type="text/x-template">
-  <h2>You have already signed up for this course.</h2>
+  
 </script>
 
 
 <script id="myCourseViewInstruct-template" type="text/x-underscore-template">
-  <div class="single-course mycourse-view">
+  <div class="single-course mycourse-view" id="mycourse-Instruct">
   <h3>{{name}}</h3>
   <p>{{moment( weekdays ).format( 'dddd' )}}</p>
   <p>{{moment( start_time ).format( 'h:mm a' )}} - {{moment( end_time ).format( 'h:mm a' )}}</p>
@@ -95,7 +95,7 @@
 
 
 <script id="registrationView-template" type="text/x-underscore-template">
-  <div class="single-course">
+  <div class="single-course" id="registration">
     <h2>Registration Confirmation</h2><p>Confirmation #{{registerID}}</p>
     <h3>{{course.name}}</h3>
     <p>Instructor: {{user.first_name}} {{user.last_name}}</p>

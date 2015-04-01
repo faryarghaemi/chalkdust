@@ -42,9 +42,9 @@ class ProjectOneUploader < CarrierWave::Uploader::Base
   #   process :resize_to_fit => [200, 300]
   # end
 
-  # version :large do
-  #   process :resize_to_fit => [600, 400]
-  # end
+  version :large do
+    process :resize_to_fit => [600, 400]
+  end
 
   # version :huge do
   #   process :resize_to_fit => [800, 800]
