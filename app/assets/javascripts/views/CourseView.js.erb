@@ -84,20 +84,8 @@ app.CourseView = Backbone.View.extend({
             console.log('app.registrations.length', app.registrations.length); 
 
 
-            // svg function 
-              
-            var svg = function () {
-
-            $('#chalk').lazylinepainter( 
-             {
-                "svgData": pathObj,
-                "strokeWidth": 2,
-                "strokeColor": "#e09b99"
-            }).lazylinepainter('paint'); 
-
-
-            }
-
+   
+            
 
             for (var i = 0; i < app.registrations.length; i++) {
                 var register = app.registrations.models[i]

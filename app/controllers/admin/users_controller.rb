@@ -34,6 +34,12 @@ class Admin::UsersController < Admin::BaseController
     end  
   end
 
+  # def lazyline
+  #   respond_to do |format|  
+  #     format.svg  
+  #   end  
+  # end
+
   def update
     old_email = @user.email
     new_params = user_params.dup

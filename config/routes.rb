@@ -14,6 +14,7 @@ Chalkdust::Application.routes.draw do
   # get '/interactive' => 'courses#interactive'
   get '/interactive.svg/:id' => 'admin/users#interactive'
   get '/auth/linkedin/callback' => 'courses#linkedin'
+  # get '/lazyline' => 'courses#lazyline'
 
   resources :charges
 
