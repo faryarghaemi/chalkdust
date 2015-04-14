@@ -1,7 +1,5 @@
 class RegistrationsController < ApplicationController
 
-
-
   def index
     @registrations = Registration.all
     respond_to do |format|
@@ -17,10 +15,6 @@ class RegistrationsController < ApplicationController
   end 
 
   def create 
-    # @current_user ||= User.find_by(id: session[:user])
-    # @current_user = User.find(current_user.id)
-    # @registration = @current_user.registrations.create(registration_params)
-    # @registration = Registration.create(:course_id => params["course_id"], :user_id => params["user_id"])
     @registration = Registration.create(registration_params)
       if @registration.save 
         render :json => @registration 

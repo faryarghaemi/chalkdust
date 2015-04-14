@@ -13,7 +13,7 @@ app.CourseView = Backbone.View.extend({
         var courseViewTemplate = $('#courseView-template').html();
         var courseViewHTML = _.template(courseViewTemplate);
 
-        var course = this.model.attributes; 
+        var course = this.model.attributes;
         var userID = course.user_id;
         var userInfo = app.users.get(userID);
         var user = userInfo.attributes;
@@ -51,14 +51,6 @@ app.CourseView = Backbone.View.extend({
 
                     });
 
-                    // for (var i = 0; i < app.registrations.length; i++) {
-                    //     var register = app.registrations.models[i]
-                    //     if (register.attributes.user_id === userID && register.attributes.course_id === courseID) {
-                    //         var courseFalseHTML = $('#course-false-template').html();
-                    //         $('#landing-main').html(courseFalseHTML);
-                    //         return;
-                    //     }
-                    // };
 
                     registration.save().done(function() {
                         app.registrations.add(registration);
@@ -79,23 +71,34 @@ app.CourseView = Backbone.View.extend({
 
             var userID = user.id;
             var userInfo = app.users.get(userID);
-            var course = view.model.attributes; 
-            var courseID = course.id; 
-            console.log('app.registrations.length', app.registrations.length); 
+            var course = view.model.attributes;
+            var courseID = course.id;
+            console.log('app.registrations.length', app.registrations.length);
 
 
-   
-            
-
+            // show template that says you have already registered for this course 
             for (var i = 0; i < app.registrations.length; i++) {
                 var register = app.registrations.models[i]
-                
+
                 if (register.attributes.user_id === userID && register.attributes.course_id === courseID) {
-                  
+
 
                     view.$el.empty();
                     var courseFalseHTML = $('#course-false-template').html();
                     $('#landing-main').html(courseFalseHTML);
+
+
+                    // var courseFalseHTML = $('#course-false-template2').html();
+                    // $('#landing-main').html(courseFalseHTML);
+
+
+                        // $('#chalk').lazylinepainter({
+                        //     "svgData": pathObj,
+                        //     "strokeWidth": 2,
+                        //     "strokeColor": "#e09b99"
+                        // }).lazylinepainter('paint');
+
+
                     return;
                 }
             };
@@ -113,9 +116,3 @@ app.CourseView = Backbone.View.extend({
         });
     }
 });
-
-
-
-
-
-

@@ -11,10 +11,10 @@ Chalkdust::Application.routes.draw do
   # mine
   get '/currentuser' => 'courses#currentuser'
   get '/allusers' => 'courses#allusers'
-  # get '/interactive' => 'courses#interactive'
-  get '/interactive.svg/:id' => 'admin/users#interactive'
+  # get '/interactive.svg/:id' => 'admin/users#interactive'
+  get '/interactive.svg/:id' => 'courses#interactive'
+  get '/lazyline.svg' => 'courses#lazyline'
   get '/auth/linkedin/callback' => 'courses#linkedin'
-  # get '/lazyline' => 'courses#lazyline'
 
   resources :charges
 
@@ -26,13 +26,10 @@ Chalkdust::Application.routes.draw do
 
   resources :tags
 
-  # bricks
 
   namespace :admin do
     root "base#index"
     resources :users
-    get '/interactive' => 'admin/users#interactive'
-
     get "posts/drafts", to: "posts#drafts", as: "posts_drafts"
     get "posts/dashboard", to: "posts#dashboard", as: "posts_dashboard"
     resources :posts

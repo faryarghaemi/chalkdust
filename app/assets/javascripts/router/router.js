@@ -12,23 +12,10 @@ app.Router = Backbone.Router.extend({
   }, 
 
   initialize: function () {
-    // console.log("Trying!")
-    // app.courses = new app.Courses();
-    // app.registrations = new app.Registrations(); 
-    // app.users = new app.Users();
+
   },
   
   coursesView: function () {
-    // console.log("Courses View run")
-    // if ( !window.location.href.match(/#/) ) { // if it doesn't have a hash in the URL
-    //   if (( window.location.href === window.location.origin + "/") || ( window.location.href === window.location.origin )) {
-    //     console.log("Home Page for Backbone.")
-    //   } else {
-    //     return false;
-    //   }
-    // }
-
-
     if ( $("#landing-container").length !== 0 ) {
       $('#landing-main').empty();
       $('.test').empty();
@@ -101,9 +88,6 @@ app.Router = Backbone.Router.extend({
   viewRegistration: function (courseID, registrationID) {
     $('#landing-main').empty();
     $('.test').empty();
-
-
-    // console.log('courseID, registrationID', courseID, registrationID); 
 
     var users = app.users.fetch(); 
     var courses = app.courses.fetch();

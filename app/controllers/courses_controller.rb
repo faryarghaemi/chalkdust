@@ -7,20 +7,29 @@ class CoursesController < ApplicationController
     end
   end
 
-  def linkedin 
-    # @code = params["code"]
-    # @state = params["state"]
-    # @info = env['omniauth.auth']
-    # @id = env['omniauth.auth']['uid']
-    # me = api.profile
-    # my_name = api.profile(fields: ["first-name", "last-name"])
-    # my_profile = api.profile(fields: ["skills", "educations", "courses", "three-current-positions"])
-    # skills = my_profile['skills']
-    # job_titles = api.profile(fields: ["id", {"positions" => ["title"]}])
+  def set_content_type  
+    headers["Content-Type"] = "image/svg+xml"
+  end
 
+
+  def interactive
+    @user = User.where( :id => params["id"])
+    @user = @user[0]
+    respond_to do |format|  
+      format.svg  
+    end  
+  end
+
+  def lazyline
+    # binding.pry
+    respond_to do |format|  
+      format.svg  
+    end
+  end 
+
+  def linkedin
     token = env['omniauth.auth']['credentials']['token']
     api = LinkedIn::API.new(token)
-
  
     my_name = api.profile(fields: ["first-name", "last-name"])
 
@@ -39,23 +48,6 @@ class CoursesController < ApplicationController
 
     redirect_to "/users/edit"
   end 
-
-  # def set_content_type  
-  #   headers["Content-Type"] = "image/svg+xml"  
-  # end
-
-  # def interactive 
-  #   respond_to do |format|  
-  #     format.svg  
-  #   end  
-  # end 
-
- #  def mycourses
- #   @current_user = User.find_by :id => session[:user_id]
- #   @mycourses = @current_user.courses
- #   render :json => @mycourses
- #   binding.pry
- # end
 
   def allusers
     @users = User.all 

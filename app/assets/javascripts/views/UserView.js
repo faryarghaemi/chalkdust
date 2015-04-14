@@ -3,9 +3,6 @@ var app = app || {};
 
 app.UserView = Backbone.View.extend({
     el: '#landing-main',
-    events: {
-        'click #linkedin': 'linkedIn'
-    },
     render: function(result) {
         this.$el.empty();
 
@@ -57,14 +54,11 @@ app.UserView = Backbone.View.extend({
 
         }
 
-        
-
         // interactive svg
         var userViewTry2HTML = $('#userViewTry2-template').html();
         $('#user-right').append(userViewTry2HTML);
 
         // debugger;
-
         var svg = function() {
             $("#stage").load('interactive.svg/' + user.id, function(response) {
 
@@ -79,6 +73,8 @@ app.UserView = Backbone.View.extend({
         }
 
         svg();
+
+        
 
 
         // linkedin api 
@@ -102,16 +98,6 @@ app.UserView = Backbone.View.extend({
         };
 
 
-
-       
-
-
-    },
-
-    linkedIn: function(event) {
-        event.preventDefault();
-
-
-
     }
+
 });

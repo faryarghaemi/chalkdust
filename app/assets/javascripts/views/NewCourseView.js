@@ -71,9 +71,6 @@ app.NewCourseView = Backbone.View.extend({
 
         }); 
 
-
-
-
     },
 
     clearCourse: function(event) {

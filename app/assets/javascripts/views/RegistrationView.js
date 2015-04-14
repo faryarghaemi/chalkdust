@@ -3,6 +3,7 @@ var app = app || {};
 app.RegistrationView = Backbone.View.extend({
   el: '#landing-main',
   render: function (options) {
+    
     var registration = this.model; 
     var view = this; 
 
@@ -32,19 +33,8 @@ app.RegistrationView = Backbone.View.extend({
     var compiledHTML = registrationViewHTML(optionsModel); 
     $('#landing-main').append(compiledHTML);
 
-
-
     }); 
- 
-
 
   }
-
-
-
-
-
-
-
 
 }); 

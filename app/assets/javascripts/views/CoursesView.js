@@ -21,13 +21,12 @@ app.CoursesView = Backbone.View.extend({
           course: course, 
           user: user
         }
-        // if ( $('#coursesView-template').length === 0 ) {
+
         var coursesViewTemplate = $('#coursesView-template').html();
         var coursesViewHTML = _.template(coursesViewTemplate);
 
         var compiledHTML = coursesViewHTML(options); 
         $('#landing-main').append(compiledHTML); 
-      // }
       }); 
 
     }); 
@@ -43,8 +42,6 @@ app.CoursesView = Backbone.View.extend({
     var user_id = result.currentTarget.id;
 
     app.router.navigate('allusers/' + user_id, true); 
-
-
 
   }, 
 

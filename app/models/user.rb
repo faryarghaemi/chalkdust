@@ -55,8 +55,7 @@ has_many :courses
 has_many :posts
 has_many :ratings, through: :courses
 
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  # devise 
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
@@ -64,12 +63,6 @@ has_many :ratings, through: :courses
   # Pagination
   paginates_per 100
 
-  # def currentuser
-  #   @current_user = User.find(current_user.id)
-  #   respond_to do |format|
-  #     format.json { render json: @current_user }
-  #   end
-  # end
 
   def current_user
     @current_user ||= User.find_by(id: session[:user])
