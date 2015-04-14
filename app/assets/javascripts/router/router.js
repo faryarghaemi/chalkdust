@@ -39,10 +39,8 @@ app.Router = Backbone.Router.extend({
     $('.test').empty();
 
     app.users.fetch().done(function () {
-      // debugger;
       var newCourseView = new app.NewCourseView();
       newCourseView.render(); 
-
 
     }); 
 

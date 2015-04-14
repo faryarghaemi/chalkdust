@@ -7,7 +7,6 @@ app.CourseView = Backbone.View.extend({
     },
 
     render: function(result) {
-
         app.courseInfo = result;
         this.$el.empty();
         var courseViewTemplate = $('#courseView-template').html();

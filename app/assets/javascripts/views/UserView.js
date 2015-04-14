@@ -2,8 +2,12 @@ var app = app || {};
 
 
 app.UserView = Backbone.View.extend({
-    el: '#landing-main',
+    el: '#landing-main', 
+
     render: function(result) {
+
+
+
         this.$el.empty();
 
         // user info 
@@ -99,5 +103,4 @@ app.UserView = Backbone.View.extend({
 
 
     }
-
 });

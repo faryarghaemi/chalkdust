@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Chalkdust</title>
 
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -40,9 +41,11 @@
       $("a.backbone").on("click", function () {
         event.preventDefault();
         window.location = $(this).attr("href");
-        // console.log("WHAT")
-        // app.router.navigate( "/create-course", { trigger: true } )
       })
+    });
+
+    $("input#edit-user-button").on("click", function () {
+      $(".edit_user").submit();
     });
   </script>
 

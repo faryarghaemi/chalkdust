@@ -3,9 +3,9 @@ app.CoursesView = Backbone.View.extend({
   el: '#landing-main',
   events: {
     'click .course': 'showCourse',
-    'click .user': 'showUser',  
-    'click #create-search': 'createSearch'
-  }, 
+    'click .user': 'showUser'
+    // 'click #create-search': 'createSearch'
+  },
 
   render: function () {
     this.$el.empty(); 
@@ -43,12 +43,12 @@ app.CoursesView = Backbone.View.extend({
 
     app.router.navigate('allusers/' + user_id, true); 
 
-  }, 
-
-  createSearch: function (event) {
-    event.preventDefault(); 
-
   }
+  
+  // createSearch: function (event) {
+  //   event.preventDefault(); 
+
+  // }
 
 
 }); 
