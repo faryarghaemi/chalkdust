@@ -56,9 +56,12 @@ gem 'pg'
 gem 'devise', '3.4.1'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+gem 'fog'
 gem 'cloudinary'
 gem 'mini_magick'
 gem 'carrierwave'
+
 gem 'jquery-slick-rails', '~> 1.5.0.1'
 gem 'modernizr-rails'
 gem 'inline_svg'
@@ -66,7 +69,7 @@ gem 'httparty', '~> 0.13.3'
 # gem 'oauth2'
 # gem 'omniauth'
 gem 'omniauth-linkedin-oauth2'
-gem "linkedin-oauth2", "~> 1.0"
+gem 'linkedin-oauth2', "~> 1.0"
 gem 'omniauth-oauth2'
 gem 'linkedin'
 
