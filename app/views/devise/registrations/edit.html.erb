@@ -1,7 +1,5 @@
 
-<div class="row">
-  <div class="col-sm-6 ">
-    <h1>Edit your profile</h1>
+
 
     <%= form_for(resource, :as => resource_name,
     :url => registration_path(resource_name),
@@ -9,255 +7,155 @@
 
     <%= devise_error_messages! %>
 
+<div class="container">
+  <div class="col-sm-6">
+    <h1>Edit your profile</h1>
+
     <div class="form-group">
       <%= f.label :email %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.email_field :email, :autofocus => true, class: "form-control" %>
-        </div>
-      </div>
     </div>
 
     <div class="form-group">
       <%= f.label :first_name %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :first_name, class: "form-control" %>
-        </div>
-      </div>
     </div>
 
     <div class="form-group">
       <%= f.label :last_name %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :last_name, class: "form-control" %>
-        </div>
-      </div>
-    </div>
-
-      <div class="form-group">
-      <%= f.label :project_one, :value => 'Project One' %>
-      <div class="row">
-        <div class="col-sm-6">
-          <%= f.file_field :project_one %>
-          <%= f.text_field :remote_project_one_url, :placeholder => 'or project url' %>
-        </div>
-      </div>
-    </div>
-
-      <div class="form-group">
-      <%= f.label :project_two, :value => 'Project Two' %>
-      <div class="row">
-        <div class="col-sm-6">
-          <%= f.file_field :project_two %>
-          <%= f.text_field :remote_project_two_url, :placeholder => 'or project url' %>
-        </div>
-      </div>
-    </div>
-
-      <div class="form-group">
-      <%= f.label :project_three, :value => 'Project Three' %>
-      <div class="row">
-        <div class="col-sm-6">
-          <%= f.file_field :project_three %>
-          <%= f.text_field :remote_project_three_url, :placeholder => 'or project url' %>
-        </div>
-      </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :image, :value => 'Profile Picture' %>
-      <div class="row">
-        <div class="col-sm-6">
-          <%= f.file_field :image %>
-          <%= f.text_field :remote_image_url, :placeholder => 'or image url' %>
-        </div>
-      </div>
+      <%= f.label :project_one, :value => 'Project One' %>
+          <%= f.file_field :project_one %>
+          <%= f.text_field :remote_project_one_url, :placeholder => 'or project url' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :project_two, :value => 'Project Two' %>
+          <%= f.file_field :project_two %>
+          <%= f.text_field :remote_project_two_url, :placeholder => 'or project url' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :project_three, :value => 'Project Three' %>
+          <%= f.file_field :project_three %>
+          <%= f.text_field :remote_project_three_url, :placeholder => 'or project url' %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div class="row">
-      <div class="col-sm-6">
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-      </div>
-    </div>
     <% end %>
 
     <div class="form-group">
       <%= f.label :password %> <i><small>(leave blank if you don't want to change it)</small></i>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.password_field :password, :autocomplete => "off", class: "form-control" %>
-        </div>
-      </div>
     </div>
 
     <div class="form-group">
       <%= f.label :password_confirmation %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.password_field :password_confirmation, class: "form-control" %>
-        </div>
-      </div>
     </div>
 
     <div class="form-group">
       <%= f.label :current_password %> <i><small>(we need your current password to confirm your changes)</small></i>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.password_field :current_password, class: "form-control" %>
-        </div>
-      </div>
     </div>
 
 
     <div class="form-group btn btn-default">
-      <%= link_to('LinkedIn', '/auth/linkedin') %>
+        <%= link_to('LinkedIn', '/auth/linkedin') %>
     </div>
-
-
     
     <div class="form-group">
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.check_box :is_instructor %> <%= f.label :is_instructor, "Is Instructor?" %>
-        </div>
-      </div>
     </div>
   </div>
 
-  <div class="col-sm-6"> 
-    <h1>Edit your timeline</h1>
+  <div class="col-sm-6">
 
+    <h1>Edit your timeline</h1>
     <div class="form-group">
       <%= f.label :year1 %>
-      <div class="row">
-        <div class="col-sm-6">
-          <%= f.text_field :year1, class: "form-control" %>
-        </div>
-      </div>
+      <%= f.text_field :year1, class: "form-control" %>
     </div>
+
     <div class="form-group">
       <%= f.label :headline1 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :headline1, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :detail1 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :detail1, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :year2 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :year2, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :headline2 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :headline2, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :detail2 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :detail2, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :year3 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :year3, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :headline3 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :headline3, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :detail3 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :detail3, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :year4 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :year4, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :headline4 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :headline4, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :detail4 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :detail4, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :year5 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :year5, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :headline5 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :headline5, class: "form-control" %>
-        </div>
-      </div>
     </div>
+
     <div class="form-group">
       <%= f.label :detail5 %>
-      <div class="row">
-        <div class="col-sm-6">
           <%= f.text_field :detail5, class: "form-control" %>
-        </div>
-      </div>
     </div>
       
-  </div>
-
-      <div class="row">
-      <div class="col-sm-6">
-        <%= f.submit "Update", class: "btn btn-primary", id: "edit-user-button" %> - <%= link_to "Cancel", root_path %>
-      </div>
+    <div class="form-group">
+          <%= f.submit "Update", class: "btn btn-primary", id: "edit-user-button" %> - <%= link_to "Cancel", root_path %>
     </div>
+  </div>
+</div>
 
     <% end %>
-</div>
+
