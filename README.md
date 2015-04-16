@@ -11,34 +11,35 @@ A site where instructors (everyday people) can post courses and students (again 
 ## Libraries, Gems, and other technologies 
 
 - jQuery
-- Backbone.js 
+- Backbone.js
 - Slick.js
 - Moment.js
 - Handlebars.js
-- Underscore.js 
+- Underscore.js
 - Moment.js
 - Checkout.js
 - Accounting.js
 
-- LinkedIn API 
-- LiquidSpace API 
-- Stripe API 
+- LinkedIn API
+- LiquidSpace API
+- Stripe API
 
-- fog gem 
-- carrierwave gem 
-- figaro gem 
+- fog gem
+- carrierwave gem
+- figaro gem
 - omniauth-linkedin-oauth2 gem 
 
 ## Sore bits 
 
 - SVG loads depending on internet connectivity 
 - switching between backbone and rails views 
+- deploying carrierwave to heroku 
 
 ## Cool beans 
 
 - interactive AND dynamic SVG 
 - access to full LinkedIn profile 
-- aesthetic instructor page 
+- aesthetically beautiful instructor page 
 
 ## Next steps 
 
