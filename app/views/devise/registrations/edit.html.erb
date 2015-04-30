@@ -3,7 +3,7 @@
 
     <%= form_for(resource, :as => resource_name,
     :url => registration_path(resource_name),
-    :html => { :method => :put, role: "form" }) do |f| %>
+    :html => { :method => :put, role: "form", multipart: true }) do |f| %>
 
     <%= devise_error_messages! %>
 
@@ -30,18 +30,21 @@
       <%= f.label :project_one, :value => 'Project One' %>
           <%= f.file_field :project_one %>
           <%= f.text_field :remote_project_one_url, :placeholder => 'or project url' %>
+          <%= f.hidden_field :project_one_cache %>
     </div>
 
     <div class="form-group">
       <%= f.label :project_two, :value => 'Project Two' %>
           <%= f.file_field :project_two %>
           <%= f.text_field :remote_project_two_url, :placeholder => 'or project url' %>
+          <%= f.hidden_field :project_two_cache %>
     </div>
 
     <div class="form-group">
       <%= f.label :project_three, :value => 'Project Three' %>
           <%= f.file_field :project_three %>
           <%= f.text_field :remote_project_three_url, :placeholder => 'or project url' %>
+          <%= f.hidden_field :project_three_cache %>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

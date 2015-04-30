@@ -4,7 +4,7 @@ class ProjectOneUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # include Cloudinary::CarrierWave if Rails.env.production?
 

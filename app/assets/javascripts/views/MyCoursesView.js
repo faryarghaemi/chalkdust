@@ -4,6 +4,7 @@ var app = app || {};
 app.MyCoursesView = Backbone.View.extend({
     el: '#landing-main',
     render: function() {
+    this.$el.empty();
 
         $.getJSON('/currentuser').done(function(user) {
             var userID = user.id;
