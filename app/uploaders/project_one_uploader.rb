@@ -33,11 +33,14 @@ class ProjectOneUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-  # process :scale => [200, 300]
+  # process :scale => [400, 300]
   #
-  # def scale(width, height)
-  #     process :scale => [500, 300]
-  # end
+  def scale(width, height)
+      process :scale => [410, 300]
+  end
+
+  process :resize_to_limit => [410, 300]
+
 
   # Create different versions of your uploaded files:
   # version :thumb do

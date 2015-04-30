@@ -4,7 +4,7 @@ class ProjectThreeUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # include Cloudinary::CarrierWave if Rails.env.production?
 
@@ -33,9 +33,11 @@ class ProjectThreeUploader < CarrierWave::Uploader::Base
   # Process files as they are uploaded:
   # process :scale => [200, 300]
   #
-  # def scale(width, height)
-  #     process :scale => [500, 300]
-  # end
+  def scale(width, height)
+      process :scale => [410, 300]
+  end
+
+  process :resize_to_limit => [410, 300]
 
   # Create different versions of your uploaded files:
   # version :thumb do
