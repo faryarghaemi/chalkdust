@@ -34,10 +34,10 @@ class ProjectThreeUploader < CarrierWave::Uploader::Base
   # process :scale => [200, 300]
   #
   def scale(width, height)
-      process :scale => [410, 300]
+      process :scale => [510, 300]
   end
 
-  process :resize_to_limit => [410, 300]
+  process :resize_to_limit => [510, 300]
 
   # Create different versions of your uploaded files:
   # version :thumb do
