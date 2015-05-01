@@ -263,7 +263,7 @@ var pathObj = {
       <h1><a id="{{course.id}}" class="course" data-course-id = {{ course.id }}>{{course.name}}</a></h1>
       <p>with <a id="{{user.id}}" class="user" data-course-id = {{ user.id }}>{{user.first_name}} {{user.last_name}}</a></p>
       <p>{{moment( course.start_date ).format( 'MMMM D, YYYY' )}}</p>
-      <p>{{ course.weekdays }}</p>
+      <p>{{ moment( course.weekdays ).format( 'dddd' ) }}</p>
       <p>{{moment( course.start_time ).format( 'h:mm a' )}} - {{moment( course.end_time ).format( 'h:mm a' )}}</p>
       <p>{{course.skill_level}}</p>
     </div>

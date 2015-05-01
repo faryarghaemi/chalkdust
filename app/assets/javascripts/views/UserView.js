@@ -88,18 +88,21 @@ app.UserView = Backbone.View.extend({
         var userViewTry3Template = $('#userViewTry3-template').html();
 
         $('.test').append(userViewTry3Template);
+        if (user.linkedin_id !== null ) {
+            array = user.linkedin_id.split(',');
+            
+            for (var i = 0; i < array.length -1; i++) {
+                var skill = array[i]; 
 
-        array = user.linkedin_id.split(',');
+                var $p = $('<p/>');
+                $p.addClass('col-lg-3 little-skills'); 
+                $p.text(skill);  
+                $('#linkedinView').append($p);
 
-        for (var i = 0; i < array.length -1; i++) {
-            var skill = array[i]; 
+            };
+        }
+        
 
-            var $p = $('<p/>');
-            $p.addClass('col-lg-3 little-skills'); 
-            $p.text(skill);  
-            $('#linkedinView').append($p);
-
-        };
 
 
     }
