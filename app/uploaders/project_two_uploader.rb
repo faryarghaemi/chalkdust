@@ -37,7 +37,7 @@ class ProjectTwoUploader < CarrierWave::Uploader::Base
   #     process :scale => [510, 300]
   # end
 
-  process :resize_to_fit => [505, 300]
+  process :resize_to_fit => [550, 300]
   
 
   # Create different versions of your uploaded files:
