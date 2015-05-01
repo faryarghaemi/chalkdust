@@ -34,7 +34,7 @@ app.UserView = Backbone.View.extend({
                 slidesToShow: 1,
                 autoplay: true,
                 variableWidth: false,
-                adaptiveHeight: true, 
+                adaptiveHeight: true,
                 pauseOnHover: false,
                 responsive: [{
                     breakpoint: 768,
