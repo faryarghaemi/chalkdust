@@ -10,11 +10,11 @@
 #  end_date    :datetime
 #  start_time  :datetime
 #  end_time    :datetime
-#  weekdays    :datetime
 #  skill_level :string
 #  created_at  :datetime
 #  updated_at  :datetime
 #  course_cost :integer
+#  weekdays    :text             default("{}"), is an Array
 #
 
 class Course < ActiveRecord::Base

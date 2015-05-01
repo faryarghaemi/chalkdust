@@ -3,7 +3,9 @@ var app = app || {};
 app.CourseView = Backbone.View.extend({
     el: '#landing-main',
     events: {
-        'click #customButton': 'stripeCheckout'
+        'click #customButton': 'stripeCheckout', 
+        'click .user': 'showUser'
+
     },
 
     render: function(result) {
@@ -113,5 +115,12 @@ app.CourseView = Backbone.View.extend({
             e.preventDefault();
 
         });
+    }, 
+
+    showUser: function (result) {
+        console.log(result); 
+        var user_id = result.currentTarget.id;
+
+        app.router.navigate('allusers/' + user_id, true); 
     }
 });

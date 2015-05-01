@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401062313) do
+ActiveRecord::Schema.define(version: 20150501055305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,11 +24,11 @@ ActiveRecord::Schema.define(version: 20150401062313) do
     t.datetime "end_date"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "weekdays"
     t.string   "skill_level"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "course_cost"
+    t.text     "weekdays",    default: [], array: true
   end
 
   create_table "courses_tags", id: false, force: :cascade do |t|

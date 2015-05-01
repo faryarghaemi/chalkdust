@@ -77,10 +77,13 @@ class CoursesController < ApplicationController
     @course = Course.new
   end 
 
-  def create 
+  def create
     @course = Course.new(course_params)
+    params["weekdays"].each do |weekday|
+      @course.weekdays << weekday 
+    end
       if @course.save 
-        render :json => @course 
+        render :json => @course
       end  
   end
 

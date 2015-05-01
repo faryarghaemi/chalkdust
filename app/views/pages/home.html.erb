@@ -3,59 +3,81 @@
 </div>
 
 <script id="stripe-template" type="text/x-underscore-template">
-<button id="customButton" class="btn btn-success">Sign Up</button>
+<button id="customButton" class="btn btn-success custom-button-chalk">Sign Up</button>
 </script> 
 
 
 <script id="newCourseView-template" type="text/x-template">
-  <h2>Create Course</h2>
-  <form> 
-    <div>
-      <label for="name">Name</label><br> 
-      <input type="text" id="name" placeholder="name" required></input> 
-    </div>
-    <div>
-      <label for="description">Description</label><br> 
-      <input type="text" id="description" placeholder="description"></input> 
-    </div>
-    <div>
-      <label for="start_date">Start Date</label><br> 
-      <input id="start_date" placeholder="start date" type="date"></input> 
-    </div>
-    <div>
-      <label for="end_date">End Date</label><br> 
-      <input id="end_date" placeholder="end date" type="date"></input> 
-    </div>
-    <div>
-      <label for="start_time">Start Time</label><br> 
-      <input id="start_time" placeholder="start time" type="time"></input> 
-    </div>
-    <div>
-      <label for="end_time">End Time</label><br> 
-      <input id="end_time" placeholder="end time" type="time"></input>
-    </div>
-    <div>
-      <label for="course_cost">Course Cost</label><br> 
-      <input type="number" id="course_cost" placeholder="$200"></input>
-    </div>
-    <div>
-      <label for="weekdays">Weekdays</label><br> 
-      <input id="weekdays" placeholder="Mondays"></input>
-    </div>
-    <div>
-      <label for="skill_level">Skill Level</label><br> 
-        <select id="skill_level">
-          <option value="beginner">beginner</option>
-          <option value="intermediate">intermediate</option>
-          <option value="advanced">advanced</option>
-        </select>
-    </div><br>
+<div class="container">
+  <div class="col-sm-6">
+      <h2>Create Course</h2>
+      <form> 
+        <div>
+          <label for="name">Name</label><br> 
+          <input class="form-control" type="text" id="name" placeholder="name" required></input> 
+        </div>
+        <div> 
+          <label for="description">Description</label><br> 
+          <textarea class="form-control" type="text" id="description" placeholder="description"></textarea> 
+        </div>
+        <div>
+          <label for="start_date">Start Date</label><br> 
+          <input class="form-control" id="start_date" placeholder="start date" type="date"></input> 
+        </div>
+        <div>
+          <label for="end_date">End Date</label><br> 
+          <input class="form-control" id="end_date" placeholder="end date" type="date"></input> 
+        </div>
+        <div>
+          <label for="start_time">Start Time</label><br> 
+          <input class="form-control" id="start_time" placeholder="start time" type="time"></input> 
+        </div>
+        <div>
+          <label for="end_time">End Time</label><br> 
+          <input class="form-control" id="end_time" placeholder="end time" type="time"></input>
+        </div>
+        <div>
+          <label for="course_cost">Course Cost</label><br> 
+          <input class="form-control" type="number" id="course_cost" placeholder="$200"></input>
+        </div>
+        <div id="weekdays">
+            <label for="saturday">  Saturdays</label>
+            <input type='checkbox' value='Saturdays'></input>  
 
-      <button id="create-Course" class="btn btn-success">Create Course</button>
-      <button id="clear-Course" class="btn btn-success">Clear</button> 
- 
-  </form> 
-  <div id="show-Course"></div> 
+            <label for="sunday">    Sundays</label>
+            <input type='checkbox' value='Sundays'></input>
+
+            <label for="monday">    Mondays</label>
+            <input type='checkbox' value='Mondays'></input> 
+
+            <label for="tuesday">   Tuesdays</label>
+            <input type='checkbox' value='Tuesdays'></input> 
+
+            <label for="wednesday"> Wednesdays</label>
+            <input type='checkbox' value='Wednesdays'></input>
+
+            <label for="thursday">  Thursdays</label>
+            <input type='checkbox' value='Thursdays'></input> 
+
+            <label for="friday">    Fridays</label>
+            <input type='checkbox' value='Fridays'></input> 
+        </div> 
+        <div>
+          <label for="skill_level">Skill Level</label><br> 
+            <select class="form-control" id="skill_level">
+              <option value="beginner">beginner</option>
+              <option value="intermediate">intermediate</option>
+              <option value="advanced">advanced</option>
+            </select>
+        </div><br>
+
+          <button id="create-Course" class="btn btn-success custom-button-chalk">Create Course</button>
+          <button id="clear-Course" class="btn btn-success custom-button-chalk">Clear</button> 
+     
+      </form> 
+    </div> 
+</div> 
+<div id="show-Course"></div> 
 </script>
 
 <script id="instructor-false-template" type="text/x-template">
@@ -226,8 +248,8 @@ var pathObj = {
 
 <script id="myCourseViewInstruct-template" type="text/x-underscore-template">
   <div class="single-course mycourse-view" id="mycourse-Instruct">
-  <h3>{{name}}</h3>
-  <p>{{moment( weekdays ).format( 'dddd' )}}</p>
+  <h3><a id="{{id}}" class="course" data-course-id = {{ id }}>{{name}}</a></h3>
+  <p>{{ weekdays }}</p>
   <p>{{moment( start_time ).format( 'h:mm a' )}} - {{moment( end_time ).format( 'h:mm a' )}}</p>
   </div>
   <div id="instruct"></div>
@@ -241,9 +263,8 @@ var pathObj = {
       <h1><a id="{{course.id}}" class="course" data-course-id = {{ course.id }}>{{course.name}}</a></h1>
       <p>with <a id="{{user.id}}" class="user" data-course-id = {{ user.id }}>{{user.first_name}} {{user.last_name}}</a></p>
       <p>{{moment( course.start_date ).format( 'MMMM D, YYYY' )}}</p>
-      <p>{{course.description}}</p> 
+      <p>{{ course.weekdays }}</p>
       <p>{{moment( course.start_time ).format( 'h:mm a' )}} - {{moment( course.end_time ).format( 'h:mm a' )}}</p>
-      <p>{{accounting.formatMoney(course.course_cost)}}</p>
       <p>{{course.skill_level}}</p>
     </div>
   </div>
@@ -309,10 +330,11 @@ var pathObj = {
 
   <script id="courseView-template" type="text/x-underscore-template">
   <div class="single-course">
-    <h1 class="courseViewlinks"><a id="{{course.id}}" data-course-id = {{ course.id }}>{{course.name}}</a></h1>
-    <p>with <a id="{{user.id}}" data-course-id = {{ user.id }}>{{user.first_name}} {{user.last_name}}</a></p>
-    <p>{{moment( course.start_date ).format( 'MMMM D, YYYY' )}}</p>
+    <h1 class="courseViewlinks">{{ course.name }}</h1>
+    <p>with <a class="user" id="{{user.id}}" data-course-id = {{ user.id }}>{{user.first_name}} {{user.last_name}}</a></p>
+    <p>{{moment( course.start_date ).format( 'MMMM D, YYYY' ) - moment( course.end_date ).format( 'MMMM D, YYYY' )}}</p>
     <p>{{course.description}}</p> 
+    <p>{{course.weekdays}}</p>
     <p>{{moment( course.start_time ).format( 'h:mm a' )}} - {{moment( course.end_time ).format( 'h:mm a' )}}</p>
     <p>{{accounting.formatMoney(course.course_cost)}}</p>
     <p>{{course.skill_level}}</p>

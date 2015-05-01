@@ -5,8 +5,7 @@ app.NewCourseView = Backbone.View.extend({
     el: '#landing-main',
     events: {
         'click #create-Course': 'createNewCourse',
-        'click #clear-Course': 'clearCourse', 
-        'click #create-search': 'createSearch'
+        'click #clear-Course': 'clearCourse'
     },
 
     render: function() {
@@ -32,11 +31,19 @@ app.NewCourseView = Backbone.View.extend({
             var startTime = $('#start_time').val();
             var endTime = $('#end_time').val();
             var courseCost = $('#course_cost').val();
-            var weekdays = $('#weekdays').val();
             var skillLevel = $('#skill_level').val();
             var userID = app.currentUser.responseJSON.id;
             var userInfo = app.users.get(userID); 
             var userInstructor = userInfo.attributes.is_instructor; 
+            var weekdays = []
+          $('#weekdays').children('input').each(function () {
+            if (this.checked) {
+                weekdays.push($(this).val());
+            }
+            
+          });
+
+          console.log('weekdays', weekdays); 
 
 
             var course = new app.Course({
@@ -47,8 +54,8 @@ app.NewCourseView = Backbone.View.extend({
                 start_time: startTime,
                 end_time: endTime,
                 course_cost: courseCost,
-                weekdays: weekdays,
                 skill_level: skillLevel,
+                weekdays: weekdays, 
                 user_id: userID
             });
 
@@ -76,11 +83,6 @@ app.NewCourseView = Backbone.View.extend({
     clearCourse: function(event) {
         event.preventDefault();
         $('#newCourseView-template').empty();
-
-    }, 
-
-    createSearch: function (event) {
-        event.preventDefault(); 
 
     }
 

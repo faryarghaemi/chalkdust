@@ -3,6 +3,9 @@ var app = app || {};
 
 app.MyCoursesView = Backbone.View.extend({
     el: '#landing-main',
+    events: {
+        'click .course': 'showCourse'
+    }, 
     render: function() {
     this.$el.empty();
 
@@ -33,6 +36,12 @@ app.MyCoursesView = Backbone.View.extend({
 
         });
 
+
+    }, 
+
+    showCourse: function (result) {
+        var id = result.currentTarget.id;
+        app.router.navigate('courses/' + id, true);
 
     }
 
