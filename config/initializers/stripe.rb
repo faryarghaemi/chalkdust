@@ -4,8 +4,3 @@ Rails.configuration.stripe = {
 }
 
 Stripe.api_key = Rails.configuration.stripe[:secret_key]
-
-# live secret_key: sk_live_mhyTkEIAtZBV6QTAs7U4wLgx
-
-#live publishable_key: pk_live_hk4D2o1kOpyCYCZIgXBfUKc1
-

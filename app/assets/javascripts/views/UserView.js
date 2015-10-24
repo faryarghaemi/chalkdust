@@ -81,7 +81,7 @@ app.UserView = Backbone.View.extend({
         
 
 
-        // linkedin api 
+        // linkedin api
 
         $('#footer').before('<div class="test"></div>');
 
@@ -90,7 +90,7 @@ app.UserView = Backbone.View.extend({
         $('.test').append(userViewTry3Template);
         if (user.linkedin_id !== null ) {
             array = user.linkedin_id.split(',');
-            
+
             for (var i = 0; i < array.length -1; i++) {
                 var skill = array[i]; 
 
